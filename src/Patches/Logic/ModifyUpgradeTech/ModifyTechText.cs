@@ -16,6 +16,14 @@ namespace ProjectOrbitalRing.Patches.Logic.ModifyUpgradeTech {
                     __result += "\r\n" + "下版本删除".TranslateFromJson();
                     break;
 
+                case 5601:
+                case 5602:
+                case 5603:
+                case 5604:
+                case 5605:
+                    __result += "\r\n" + "提升攻击无人机20点护甲".TranslateFromJson();
+                    break;
+
                 case ProtoID.T驱动引擎2:
                     __result += "\r\n" + "离星燃料消耗描述".TranslateFromJson();
                     break;

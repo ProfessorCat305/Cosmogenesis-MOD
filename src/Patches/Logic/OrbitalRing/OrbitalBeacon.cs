@@ -47,27 +47,29 @@ namespace ProjectOrbitalRing.Patches.Logic.OrbitalRing
                             }
                             return false;
                         } else if (pair.stationType == StationType.SynapticLathe && pair.OrbitalCorePoolId == __instance.id) {
-                            if (power == 1) {
-
-
-                                var storage = ring.GetElevatorStorage(j);
-                                for (int k = 0; k < storage.Length; k++) {
-                                    int itemId = storage[k].itemId;
-                                    if (itemId == ProtoID.I湿件主机) {
-                                        if (storage[k].count > 33) {
-                                            int SynapticLatheSpeed = storage[k].count * 100;
-                                            if (!SynapticLathePlanet.ContainsKey(factory.factorySystem)) {
-                                                SynapticLathePlanet.Add(factory.factorySystem, SynapticLatheSpeed);
-                                            } else {
-                                                LogError($"Planet speed {SynapticLathePlanet[factory.factorySystem]}");
-                                                SynapticLathePlanet[factory.factorySystem] = SynapticLatheSpeed;
-                                            }
-                                            storage[k].count -= (int)(storage[k].count * 0.03);
-                                        } else if (storage[k].count <= 33 && SynapticLathePlanet.ContainsKey(factory.factorySystem)) {
-                                            SynapticLathePlanet.Remove(factory.factorySystem);
+                            if (power != 1) {
+                                return false;
+                            }
+                            var storage = ring.GetElevatorStorage(j);
+                            if (storage == null) {
+                                return false;
+                            }
+                            for (int k = 0; k < storage.Length; k++) {
+                                int itemId = storage[k].itemId;
+                                if (itemId == ProtoID.I湿件主机) {
+                                    if (storage[k].count > 33) {
+                                        int SynapticLatheSpeed = storage[k].count * 100;
+                                        if (!SynapticLathePlanet.ContainsKey(factory.factorySystem)) {
+                                            SynapticLathePlanet.Add(factory.factorySystem, SynapticLatheSpeed);
+                                        } else {
+                                            LogError($"Planet speed {SynapticLathePlanet[factory.factorySystem]}");
+                                            SynapticLathePlanet[factory.factorySystem] = SynapticLatheSpeed;
                                         }
-                                        return false;
+                                        storage[k].count -= (int)(storage[k].count * 0.03);
+                                    } else if (storage[k].count <= 33 && SynapticLathePlanet.ContainsKey(factory.factorySystem)) {
+                                        SynapticLathePlanet.Remove(factory.factorySystem);
                                     }
+                                    return false;
                                 }
                             }
                         } else if (pair.stationType == StationType.BanDFTinderDispatch && pair.OrbitalCorePoolId == __instance.id) {
@@ -129,6 +131,11 @@ namespace ProjectOrbitalRing.Patches.Logic.OrbitalRing
 
             //matcher.LogInstructionEnumeration();
             return matcher.InstructionEnumeration();
+        }
+
+        internal static void IntoOtherSave()
+        {
+            SynapticLathePlanet = new Dictionary<FactorySystem, int>();
         }
     }
 }

@@ -65,7 +65,7 @@ namespace ProjectOrbitalRing
     {
         public const string MODGUID = "org.ProfessorCat305.OrbitalRing";
         public const string MODNAME = "OrbitalRing";
-        public const string VERSION = "1.0.8";
+        public const string VERSION = "1.0.9";
         public const string DEBUGVERSION = "";
 
 
@@ -250,6 +250,7 @@ namespace ProjectOrbitalRing
             EnergyCalculate.IntoOtherSave();
             FarmAssembler.IntoOtherSave();
             InfiniteTank.IntoOtherSave();
+            OrbitalBeacon.IntoOtherSave();
         }
 
         public string Version => VERSION;

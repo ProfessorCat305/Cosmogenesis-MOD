@@ -785,35 +785,35 @@ namespace ProjectOrbitalRing.Patches.Logic.ModifyUpgradeTech
                         techProto.Desc = "T机兵升级计划";
                         techProto.RefreshTranslation();
                         techProto.UnlockFunctions = new int[] { 68, 69 };
-                        techProto.UnlockValues = new double[] { 0.1, 0.05 };
+                        techProto.UnlockValues = new double[] { 0.1, 0.15 };
                         break;
                     case 5602:
                         techProto.Name = "迭代升级";
                         techProto.Desc = "T迭代升级";
                         techProto.RefreshTranslation();
                         techProto.UnlockFunctions = new int[] { 68, 69 };
-                        techProto.UnlockValues = new double[] { 0.1, 0.1 };
+                        techProto.UnlockValues = new double[] { 0.1, 0.15 };
                         break;
                     case 5603:
                         techProto.Name = "迭代升级";
                         techProto.Desc = "T迭代升级";
                         techProto.RefreshTranslation();
                         techProto.UnlockFunctions = new int[] { 68, 69 };
-                        techProto.UnlockValues = new double[] { 0.2, 0.1 };
+                        techProto.UnlockValues = new double[] { 0.2, 0.25 };
                         break;
                     case 5604:
                         techProto.Name = "军械量产方案";
                         techProto.Desc = "T军械量产方案";
                         techProto.RefreshTranslation();
                         techProto.UnlockFunctions = new int[] { 68, 69 };
-                        techProto.UnlockValues = new double[] { 0.3, 0.05 };
+                        techProto.UnlockValues = new double[] { 0.3, 0.1 };
                         break;
                     case 5605:
                         techProto.Name = "迭代升级";
                         techProto.Desc = "T迭代升级";
                         techProto.RefreshTranslation();
                         techProto.UnlockFunctions = new int[] { 68, 69 };
-                        techProto.UnlockValues = new double[] { 0.3, 0.2 };
+                        techProto.UnlockValues = new double[] { 0.3, 0.35 };
                         break;
                 }
 

@@ -86,6 +86,27 @@ namespace ProjectOrbitalRing.Patches.Logic.MathematicalRateEngine
                 return;
             }
             int bulletIdExpected = 1501;
+            if (gmProtoId == 6513) {
+                if (ProjectOrbitalRing.MoreMegaStructureCompatibility) {
+                    try {
+                        // 使用反射动态获取类型
+                        var mmType = Type.GetType("MoreMegaStructure.MoreMegaStructure, MoreMegaStructure");
+                        var starMegaType = mmType?.GetField("StarMegaStructureType")?.GetValue(null) as int[];
+
+                        if (starMegaType?[starIndex] == 2) {
+                            if (__instance.bulletId == 1501) {
+                                __instance.bulletCount = 0;
+                                __instance.bulletInc = 0;
+                                __instance.bulletId = 6006;
+                            }
+                            return;
+                        }
+
+                    } catch (Exception ex) {
+                        // ignored
+                    }
+                }
+            }
             if (GameMain.galaxy.stars[starIndex].type == EStarType.BlackHole) {
                 if (ProjectOrbitalRing.MoreMegaStructureCompatibility) {
                     try {

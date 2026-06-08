@@ -400,6 +400,11 @@
         "ENUS": "The slot is full"
     },
     {
+        "Name": "提升攻击无人机20点护甲",
+        "ZHCN": "提升攻击无人机20点护甲",
+        "ENUS": "Increase the armor of attack drones by 20 points"
+    },
+    {
         "Name": "飞行舱说明书",
         "ZHCN": "飞行舱说明书",
         "ENUS": "Flight cabin manual"
@@ -1695,8 +1700,8 @@
     },
     {
         "Name": "I攻击无人机A型",
-        "ZHCN": "在原型机的基础上，向防护性能特化发展的分支，将坚硬的碳化硅陶瓷作为夹层埋入装甲钢中，形成复合装甲，赋予其更强的战场存活能力。",
-        "ENUS": "On the basis of the prototype, a branch of specialized development towards protective performance is formed by embedding hard silicon carbide ceramics as interlayers in armor steel to form composite armor, endowing it with stronger battlefield survivability."
+        "ZHCN": "在原型机的基础上，向防护性能特化发展的分支，将坚硬的碳化硅陶瓷作为夹层埋入装甲钢中，形成复合装甲，赋予其更强的战场存活能力。\n<color=\"#FD965ECC\">遭受伤害时拥有20点护甲</color>",
+        "ENUS": "On the basis of the prototype, a branch of specialized development towards protective performance is formed by embedding hard silicon carbide ceramics as interlayers in armor steel to form composite armor, endowing it with stronger battlefield survivability.\n<color=\"#FD965ECC\">Have 20 points of armor when taking damage</color>"
     },
     {
         "Name": "精准无人机A型",
@@ -1715,8 +1720,8 @@
     },
     {
         "Name": "I攻击无人机B型",
-        "ZHCN": "在原型机的基础上，向防护性能特化发展的分支，将装甲钢替换为钛合金装甲，赋予其更强的战场存活能力。",
-        "ENUS": "On the basis of the prototype, the branch of specialized development towards protective performance replaces armor steel with titanium alloy armor, endowing it with stronger battlefield survivability."
+        "ZHCN": "在原型机的基础上，向防护性能特化发展的分支，将装甲钢替换为钛合金装甲，赋予其更强的战场存活能力。\n<color=\"#FD965ECC\">遭受伤害时拥有40点护甲</color>",
+        "ENUS": "On the basis of the prototype, the branch of specialized development towards protective performance replaces armor steel with titanium alloy armor, endowing it with stronger battlefield survivability.\n<color=\"#FD965ECC\">Have 40 points of armor when taking damage</color>"
     },
     {
         "Name": "精准无人机B型",
@@ -1735,8 +1740,8 @@
     },
     {
         "Name": "I攻击无人机C型",
-        "ZHCN": "在原型机的基础上，向防护性能特化发展的分支，将钛合金装甲替换为贫铀装甲，赋予其更强的战场存活能力。",
-        "ENUS": "On the basis of the prototype, the branch of specialized development towards protective performance replaces titanium alloy armor with depleted uranium armor, endowing it with stronger battlefield survivability."
+        "ZHCN": "在原型机的基础上，向防护性能特化发展的分支，将钛合金装甲替换为贫铀装甲，赋予其更强的战场存活能力。\n<color=\"#FD965ECC\">遭受伤害时拥有60点护甲</color>",
+        "ENUS": "On the basis of the prototype, the branch of specialized development towards protective performance replaces titanium alloy armor with depleted uranium armor, endowing it with stronger battlefield survivability.\n<color=\"#FD965ECC\">Have 60 points of armor when taking damage</color>"
     },
     {
         "Name": "精准无人机C型",
@@ -1755,8 +1760,8 @@
     },
     {
         "Name": "I攻击无人机D型",
-        "ZHCN": "在原型机的基础上，向防护性能特化发展的分支，优化了零件与结构设计，赋予其更强的战场存活能力。",
-        "ENUS": "On the basis of the prototype, the branch of specialized development towards protective performance has optimized the design of parts and structures, endowing it with stronger battlefield survivability."
+        "ZHCN": "在原型机的基础上，向防护性能特化发展的分支，优化了零件与结构设计，赋予其更强的战场存活能力。\n<color=\"#FD965ECC\">遭受伤害时拥有80点护甲</color>",
+        "ENUS": "On the basis of the prototype, the branch of specialized development towards protective performance has optimized the design of parts and structures, endowing it with stronger battlefield survivability.\n<color=\"#FD965ECC\">Have 80 points of armor when taking damage</color>"
     },
     {
         "Name": "精准无人机D型",
@@ -1775,8 +1780,8 @@
     },
     {
         "Name": "I攻击无人机E型",
-        "ZHCN": "在原型机的基础上，向防护性能特化发展的分支，复合装甲的夹层使用了更加坚硬的钛晶石，赋予其更强的战场存活能力。",
-        "ENUS": "On the basis of the prototype, a branch of specialized development towards protective performance, the interlayer of composite armor uses harder titanium crystals, giving it stronger battlefield survivability."
+        "ZHCN": "在原型机的基础上，向防护性能特化发展的分支，复合装甲的夹层使用了更加坚硬的钛晶石，赋予其更强的战场存活能力。\n<color=\"#FD965ECC\">遭受伤害时拥有100点护甲</color>",
+        "ENUS": "On the basis of the prototype, a branch of specialized development towards protective performance, the interlayer of composite armor uses harder titanium crystals, giving it stronger battlefield survivability.\n<color=\"#FD965ECC\">Have 100 points of armor when taking damage</color>"
     },
     {
         "Name": "精准无人机E型",
@@ -2345,8 +2350,8 @@
     },
     {
         "Name": "T磁胶粒子宽带",
-        "ZHCN": "从文明遗物中拼凑整理出来的科技，记录了另一种电磁涡轮的制造方法。",
-        "ENUS": "Magnetic Adhesive Particle Broadband"
+        "ZHCN": "从文明遗物中拼凑整理出来的科技，记录了另一种粒子宽带的制造方法。",
+        "ENUS": "The technology pieced together and organized from cultural relics records a manufacturing method for another type of particle broadband."
     },
     {
         "Name": "R磁胶粒子宽带",

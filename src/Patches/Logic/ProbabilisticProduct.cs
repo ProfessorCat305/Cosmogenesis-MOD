@@ -16,16 +16,17 @@ namespace ProjectOrbitalRing.Patches.Logic
             double random = DotNet35Random.NextDouble();
             int[] products = RecipeProto.recipeExecuteData[recipeId].products;
             switch (recipeId) {
-                case 510:
-                    if (random > 0.00001 && random <= 0.90001) {
-                        produced[2]--;
-                        productRegister[products[2]]--;
-                    }
-                    if (random > 0.05001 && random <= 0.9501) {
-                        produced[3]--;
-                        productRegister[products[3]]--;
-                    }
-                    break;
+                // 气云超精炼 已废弃
+                //case 510:
+                //    if (random > 0.00001 && random <= 0.90001) {
+                //        produced[2]--;
+                //        productRegister[products[2]]--;
+                //    }
+                //    if (random > 0.05001 && random <= 0.9501) {
+                //        produced[3]--;
+                //        productRegister[products[3]]--;
+                //    }
+                //    break;
                 case 517:
                     if (random > 0.00001 && random <= 0.25001) {
                         produced[0]--;

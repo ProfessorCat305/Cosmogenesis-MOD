@@ -2,9 +2,8 @@
 using ProjectOrbitalRing.Utils;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection.Emit;
+using static ProjectOrbitalRing.ProjectOrbitalRing;
 
 namespace ProjectOrbitalRing.Patches.Logic.BattleRelated
 {
@@ -102,5 +101,56 @@ namespace ProjectOrbitalRing.Patches.Logic.BattleRelated
             return false;
         }
 
+        // 让机枪塔放零素矢时只放一个
+        [HarmonyTranspiler]
+        [HarmonyPatch(typeof(UITurretWindow), nameof(UITurretWindow.AmmoBtn_onClick))]
+        public static IEnumerable<CodeInstruction> UITurretWindow_AmmoBtn_onClick_Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            var matcher = new CodeMatcher(instructions);
+
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4_S, (sbyte)100));
+
+            object num = matcher.Advance(4).Operand;
+
+            matcher.Advance(1).InsertAndAdvance(
+                new CodeInstruction(OpCodes.Ldloc_S, num),
+                new CodeInstruction(OpCodes.Ldarg_0),
+                new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(UITurretWindow), nameof(UITurretWindow.player))),
+                new CodeInstruction(OpCodes.Callvirt, AccessTools.PropertyGetter(typeof(Player), nameof(Player.inhandItemId))),
+                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(InfiniteReloadAmmo), nameof(ChangeInputAmmoCount))),
+                new CodeInstruction(OpCodes.Stloc_S, num)
+            );
+            //matcher.LogInstructionEnumeration();
+            return matcher.InstructionEnumeration();
+        }
+
+        public static int ChangeInputAmmoCount(int num, int itemId)
+        {
+            if (itemId == ProtoID.I零素矢) {
+                num = (int)(num - 99);
+            }
+            return num;
+        }
+
+        [HarmonyTranspiler]
+        [HarmonyPatch(typeof(PlanetFactory), nameof(PlanetFactory.EntityFastFillIn))]
+        public static IEnumerable<CodeInstruction> PlanetFactory_EntityFastFillIn_Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            var matcher = new CodeMatcher(instructions);
+
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldfld, AccessTools.Field(typeof(TurretComponent), nameof(TurretComponent.itemId))));
+
+            object itemId = matcher.Advance(1).Operand;
+            object num = matcher.Advance(5).Operand;
+
+            matcher.Advance(1).InsertAndAdvance(
+                new CodeInstruction(OpCodes.Ldloc_S, num),
+                new CodeInstruction(OpCodes.Ldloc_S, itemId),
+                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(InfiniteReloadAmmo), nameof(ChangeInputAmmoCount))),
+                new CodeInstruction(OpCodes.Stloc_S, num)
+            );
+            //matcher.LogInstructionEnumeration();
+            return matcher.InstructionEnumeration();
+        }
     }
 }

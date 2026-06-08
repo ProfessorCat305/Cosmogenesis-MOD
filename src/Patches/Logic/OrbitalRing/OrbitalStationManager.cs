@@ -1,4 +1,5 @@
 ﻿using GalacticScale;
+using ProjectOrbitalRing.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -98,16 +99,8 @@ namespace ProjectOrbitalRing.Patches.Logic.OrbitalRing
                         w.Write(customLimit);
                     }
 
-                    for (int j = 0; j < 1000; j++) {
-                        w.Write(outerPair.Value.Rings[i].insideRingPositions[j]);
-                        w.Write(outerPair.Value.Rings[i].outsideRingPositions[j]);
-                    }
                     w.Write(outerPair.Value.Rings[i].isInsideRingComplete);
                     w.Write(outerPair.Value.Rings[i].isOutsideRingComplete);
-                    for (int j = 0; j < 1000; j++) {
-                        w.Write(outerPair.Value.Rings[i].lowInsideRingPositions[j]);
-                        w.Write(outerPair.Value.Rings[i].lowOutsideRingPositions[j]);
-                    }
                     w.Write(outerPair.Value.Rings[i].isLowInsideRingComplete);
                     w.Write(outerPair.Value.Rings[i].isLowOutsideRingComplete);
                 }
@@ -198,15 +191,20 @@ namespace ProjectOrbitalRing.Patches.Logic.OrbitalRing
                             }
                         }
 
-                        for (int y = 0; y < 1000; y++) {
-                            OnePlanetOneRing.insideRingPositions[y] = r.ReadBoolean();
-                            OnePlanetOneRing.outsideRingPositions[y] = r.ReadBoolean();
+                        // 1.0.9重构了是否成环判定的逻辑，不再需要记录每个环带子的坐标是否有带子，久版本存档的数据读出来后直接丢弃
+                        if (ProjectOrbitalRing.importVersion <= 16777224) {
+                            for (int y = 0; y < 1000; y++) {
+                                r.ReadBoolean();
+                                r.ReadBoolean();
+                            }
                         }
                         OnePlanetOneRing.isInsideRingComplete = r.ReadBoolean();
                         OnePlanetOneRing.isOutsideRingComplete = r.ReadBoolean();
-                        for (int y = 0; y < 1000; y++) {
-                            OnePlanetOneRing.lowInsideRingPositions[y] = r.ReadBoolean();
-                            OnePlanetOneRing.lowOutsideRingPositions[y] = r.ReadBoolean();
+                        if (ProjectOrbitalRing.importVersion <= 16777224) {
+                            for (int y = 0; y < 1000; y++) {
+                                r.ReadBoolean();
+                                r.ReadBoolean();
+                            }
                         }
                         OnePlanetOneRing.isLowInsideRingComplete = r.ReadBoolean();
                         OnePlanetOneRing.isLowOutsideRingComplete = r.ReadBoolean();
@@ -292,13 +290,9 @@ namespace ProjectOrbitalRing.Patches.Logic.OrbitalRing
 
         public OrbitalRingStorage orbitalRingStorage;
 
-        public readonly bool[] insideRingPositions = new bool[1000];
-        public readonly bool[] outsideRingPositions = new bool[1000];
         public bool isInsideRingComplete = false;
         public bool isOutsideRingComplete = false;
 
-        public readonly bool[] lowInsideRingPositions = new bool[1000];
-        public readonly bool[] lowOutsideRingPositions = new bool[1000];
         public bool isLowInsideRingComplete = false;
         public bool isLowOutsideRingComplete = false;
 
@@ -317,12 +311,6 @@ namespace ProjectOrbitalRing.Patches.Logic.OrbitalRing
                     incCoreLevel[i] = 0;
                 }
                 orbitalRingStorage = new OrbitalRingStorage();
-                for (int i = 0; i < 1000; i++) {
-                    insideRingPositions[i] = false;
-                    outsideRingPositions[i] = false;
-                    lowInsideRingPositions[i] = false; 
-                    lowOutsideRingPositions[i] = false;
-                }
             }
         }
 
@@ -477,25 +465,24 @@ namespace ProjectOrbitalRing.Patches.Logic.OrbitalRing
             return positions[position].ElevatorStorage;
         }
 
-        public void AddRing(int ringPosition, int ringIndex, bool isLowRing)
+        public void CheckRingIsComplete(PlanetFactory factory, int beltId, int ringBeltIndex, int itemId)
         {
-            if (ringIndex == 1) {
-                if (isLowRing) {
-                    lowInsideRingPositions[ringPosition] = true;
-                    ChecRingComplete(lowInsideRingPositions, ref isLowInsideRingComplete);
-                } else {
-                    insideRingPositions[ringPosition] = true;
-                    ChecRingComplete(insideRingPositions, ref isInsideRingComplete);
+            CargoPath cargoPath = factory.cargoTraffic.GetCargoPath(factory.cargoTraffic.beltPool[beltId].segPathId);
+            if (cargoPath == null) {
+                return;
+            }
+            if (cargoPath.closed == true) {
+                if (itemId == ProtoID.I轨道连接组件) {
+                    if (ringBeltIndex == 1) {
+                        isInsideRingComplete = true;
+                    } else if (ringBeltIndex == 2) {
+                        isOutsideRingComplete = true;
+                    }
                     isOrbitalRingTechunlock();
-                }
-            } else if (ringIndex == 2) {
-                if (isLowRing) {
-                    lowOutsideRingPositions[ringPosition] = true;
-                    ChecRingComplete(lowOutsideRingPositions, ref isLowOutsideRingComplete);
-                } else {
-                    outsideRingPositions[ringPosition] = true;
-                    ChecRingComplete(outsideRingPositions, ref isOutsideRingComplete);
-                    isOrbitalRingTechunlock();
+                } else if (itemId == ProtoID.I粒子加速轨道) {
+                    isLowInsideRingComplete = true;
+                } else if (itemId == ProtoID.I星环电网组件) {
+                    isLowOutsideRingComplete = true;
                 }
             }
             if (IsOneFull()) {
@@ -504,74 +491,26 @@ namespace ProjectOrbitalRing.Patches.Logic.OrbitalRing
                 }
             }
         }
-        public void DelRing(int ringPosition, int ringIndex, bool isLowRing)
+
+        public void DelRing(int ringIndex, bool isLowRing)
         {
+            LogError($"DelRing ringIndex {ringIndex} isLowRing {isLowRing}");
             if (ringIndex == 1) {
                 if (isLowRing) {
-                    lowInsideRingPositions[ringPosition] = false;
                     isLowInsideRingComplete = false;
                 } else {
-                    insideRingPositions[ringPosition] = false;
                     isInsideRingComplete = false;
                 }
             } else if (ringIndex == 2) {
                 if (isLowRing) {
-                    lowOutsideRingPositions[ringPosition] = false;
                     isLowOutsideRingComplete = false;
                 } else {
-                    outsideRingPositions[ringPosition] = false;
                     isOutsideRingComplete = false;
                 }
             }
             bool flag = OrbitalStationManager.Instance.GetPlanetOrbitalRingData(planetId).IsGlobalPowerActive();
             if (!flag) {
                 GlobalPowerInActive(planetId);
-            }
-        }
-
-
-
-        public void CheckRingComplete(bool flag)
-        {
-            int count = 0;
-            isInsideRingComplete = true;
-            for (int i = 0; i < insideRingPositions.Length; i++) {
-                if (Capacity == 20 && (i % 2 != 0)) continue; 
-                if (!insideRingPositions[i]) {
-                    isInsideRingComplete = false;
-                    count++;
-                    //break;
-                }
-            }
-            if (flag) {
-                LogError($" 1 ring not complete {count}");
-            }
-
-            //LogError($" 1 ring count {count}");
-            count = 0;
-            isOutsideRingComplete = true;
-            for (int i = 0; i < outsideRingPositions.Length; i++) {
-                if (Capacity == 20 && (i % 2 != 0)) continue;
-                if (!outsideRingPositions[i]) {
-                    isOutsideRingComplete = false;
-                    count++;
-                    //break;
-                }
-            }
-            if (flag) {
-                LogError($" 1 ring not complete {count}");
-            }
-        }
-
-        public void ChecRingComplete(bool[] ring, ref bool theCompleteStatue)
-        {
-            theCompleteStatue = true;
-            for (int i = 0; i < ring.Length; i++) {
-                if (Capacity == 20 && (i % 2 != 0)) continue;
-                if (!ring[i]) {
-                    theCompleteStatue = false;
-                    break;
-                }
             }
         }
 

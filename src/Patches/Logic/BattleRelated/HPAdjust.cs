@@ -3,11 +3,8 @@ using System.Reflection.Emit;
 using ProjectOrbitalRing.Utils;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+using static ProjectOrbitalRing.Patches.Logic.ModifyUpgradeTech.Unlock_Save_Load;
+using static ProjectOrbitalRing.ProjectOrbitalRing;
 
 namespace ProjectOrbitalRing.Patches.Logic.BattleRelated
 {
@@ -16,7 +13,7 @@ namespace ProjectOrbitalRing.Patches.Logic.BattleRelated
         internal static void OurSideHPAdjust()
         {
             ModelProto modelProto = LDB.models.Select(374); // 机枪塔
-            modelProto.HpMax = 80000;
+            modelProto.HpMax = 100000;
 
             modelProto = LDB.models.Select(373); // 激光塔
             modelProto.HpMax = 70000;
@@ -28,12 +25,12 @@ namespace ProjectOrbitalRing.Patches.Logic.BattleRelated
             modelProto.HpMax = 45000;
             modelProto.prefabDesc.craftUnitAttackDamage0 = 2000;
             modelProto = LDB.models.Select(449); // 攻击（原精准
-            modelProto.HpMax = 75000;
+            modelProto.HpMax = 100000;
             modelProto.prefabDesc.craftUnitAttackDamage0 = 2500;
 
             modelProto = LDB.models.Select(450); // 精准（原攻击
             modelProto.HpMax = 24000;
-            modelProto.prefabDesc.craftUnitAttackDamage0 = 7500;
+            modelProto.prefabDesc.craftUnitAttackDamage0 = 10000;
             modelProto.prefabDesc.craftUnitAttackRange0 = 85f;
             modelProto.prefabDesc.craftUnitSensorRange = 100f;
             modelProto.prefabDesc.craftUnitMaxMovementSpeed = 15f;
@@ -102,6 +99,7 @@ namespace ProjectOrbitalRing.Patches.Logic.BattleRelated
 
             modelProto = LDB.models.Select(ProtoID.M强袭者);
             modelProto.HpUpgrade = 2500;
+            modelProto.prefabDesc.unitMaxMovementSpeed = 32;
             modelProto.prefabDesc.unitAttackRange0 = 10;
             modelProto.prefabDesc.enemySandCount = 0;
 
@@ -130,8 +128,12 @@ namespace ProjectOrbitalRing.Patches.Logic.BattleRelated
             modelProto.HpUpgrade = 25000;
 
             modelProto = LDB.models.Select(ProtoID.M高能激光塔);
-            modelProto.prefabDesc.dfTurretAttackDamage = 26000;
+            modelProto.prefabDesc.dfTurretAttackDamage = 12000;
             modelProto.prefabDesc.dfTurretAttackDamageInc = 3000;
+
+            modelProto = LDB.models.Select(ProtoID.M等离子哨戒塔);
+            modelProto.prefabDesc.dfTurretAttackDamage = 6000;
+            modelProto.prefabDesc.dfTurretAttackDamageInc = 600;
         }
 
         [HarmonyPatch(typeof(SkillSystem), nameof(SkillSystem.CalculateDamageIncoming))]
@@ -203,6 +205,40 @@ namespace ProjectOrbitalRing.Patches.Logic.BattleRelated
             matcher.SetOperandAndAdvance(2f);
 
             return matcher.InstructionEnumeration();
+        }
+
+        [HarmonyPatch(typeof(SkillSystem), nameof(SkillSystem.DamageGroundObjectByLocalCaster))]
+        [HarmonyPatch(typeof(SkillSystem), nameof(SkillSystem.DamageGroundObjectByRemoteCaster))]
+        [HarmonyTranspiler]
+        public static IEnumerable<CodeInstruction> SkillSystem_CraftAddArmor_Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            var matcher = new CodeMatcher(instructions);
+
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldarg_1),
+                new CodeMatch(OpCodes.Ldfld, AccessTools.Field(typeof(PlanetFactory), nameof(PlanetFactory.craftPool))),
+                new CodeMatch(OpCodes.Ldarg_S)
+            );
+
+            object craftData = matcher.Advance(5).Operand;
+
+            matcher.Advance(1).InsertAndAdvance(
+                new CodeInstruction(OpCodes.Ldarga_S, (sbyte)2),
+                new CodeInstruction(OpCodes.Ldloc_S, craftData),
+                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(HPAdjust), nameof(CalculateCraftArmor)))
+            );
+            //matcher.LogInstructionEnumeration();
+            return matcher.InstructionEnumeration();
+        }
+
+        public static void CalculateCraftArmor(ref int damage, ref CraftData craftData)
+        {
+            //如果是攻击无人机，增加护甲
+            if (craftData.modelIndex == 449) {
+                damage = damage - (2000 * UAVHPAndfiringRateUpgradeLevel);
+                if (damage < 100) {
+                    damage = 100;
+                }
+            }
         }
     }
 }

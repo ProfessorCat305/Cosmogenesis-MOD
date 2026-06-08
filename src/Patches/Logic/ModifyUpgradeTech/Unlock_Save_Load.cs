@@ -37,7 +37,7 @@ namespace ProjectOrbitalRing.Patches.Logic.ModifyUpgradeTech
 
         private static int WreckFallingLevel;
 
-        private static int UAVHPAndfiringRateUpgradeLevel;
+        public static int UAVHPAndfiringRateUpgradeLevel;
 
         private static bool isUnlockCrackingRay;
 

@@ -20,7 +20,7 @@ namespace ProjectOrbitalRing.Patches.Logic.OrbitalRing
 
             // 匹配 ldc.r4 指令
             matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_R4), new CodeMatch(OpCodes.Add));
-            matcher.SetAndAdvance(OpCodes.Ldc_R4, 95.8f);
+            matcher.SetAndAdvance(OpCodes.Ldc_R4, 100.8f);
 
             return matcher.InstructionEnumeration();
         }
@@ -32,8 +32,8 @@ namespace ProjectOrbitalRing.Patches.Logic.OrbitalRing
 
             // 匹配 ldc.r4 指令
             matcher.MatchForward(false, new CodeMatch(OpCodes.Callvirt), new CodeMatch(OpCodes.Callvirt));
-            // 将操作数从 60.8 修改为 90，护盾最大高度从60.8提高到90，以覆盖星环
-            matcher.Advance(10).SetAndAdvance(OpCodes.Ldc_R4, 95.8f);
+            // 将操作数从 60.8 修改为 90，护盾最大高度从60.8提高到100，以覆盖星环
+            matcher.Advance(10).SetAndAdvance(OpCodes.Ldc_R4, 100.8f);
 
             return matcher.InstructionEnumeration();
         }
@@ -45,12 +45,12 @@ namespace ProjectOrbitalRing.Patches.Logic.OrbitalRing
 
             // 匹配 ldc.r4 指令
             matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_R4), new CodeMatch(OpCodes.Callvirt));
-            // 将操作数从 60.8 修改为 90，护盾最大高度从60.8提高到90，以覆盖星环
-            matcher.SetAndAdvance(OpCodes.Ldc_R4, 95.8f);
+            // 将操作数从 60.8 修改为 90，护盾最大高度从60.8提高到100，以覆盖星环
+            matcher.SetAndAdvance(OpCodes.Ldc_R4, 100.8f);
 
             matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_R4), new CodeMatch(OpCodes.Add));
-            // 将操作数从 60.8 修改为 90，护盾最大高度从60.8提高到90，以覆盖星环
-            matcher.SetAndAdvance(OpCodes.Ldc_R4, 95.8f);
+            // 将操作数从 60.8 修改为 90，护盾最大高度从60.8提高到100，以覆盖星环
+            matcher.SetAndAdvance(OpCodes.Ldc_R4, 100.8f);
 
             return matcher.InstructionEnumeration();
         }
@@ -63,8 +63,8 @@ namespace ProjectOrbitalRing.Patches.Logic.OrbitalRing
 
             // 匹配 ldc.r4 指令
             matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_R4), new CodeMatch(OpCodes.Add));
-            // 将操作数从 60.8 修改为 90，护盾最大高度从60.8提高到90，以覆盖星环
-            matcher.SetAndAdvance(OpCodes.Ldc_R4, 95.8f);
+            // 将操作数从 60.8 修改为 90，护盾最大高度从60.8提高到100，以覆盖星环
+            matcher.SetAndAdvance(OpCodes.Ldc_R4, 100.8f);
 
             return matcher.InstructionEnumeration();
         }

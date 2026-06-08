@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using UnityEngine;
 using static ProjectOrbitalRing.Patches.Logic.OrbitalRing.EquatorRing;
 using static ProjectOrbitalRing.Patches.Logic.OrbitalRing.PosTool;
+using static ProjectOrbitalRing.ProjectOrbitalRing;
 
 namespace ProjectOrbitalRing.Patches.Logic.OrbitalRing
 {
@@ -562,50 +563,48 @@ namespace ProjectOrbitalRing.Patches.Logic.OrbitalRing
             int protoId = __instance.entityPool[id].protoId;
             bool flag1 = IsBuildingItemIdisOrbitalStation(protoId, true);
             bool flag2 = IsBuildingItemIdisOrbitalCore(protoId);
-            if (!(flag1 || flag2)) {
-                return;
-            }
-            Vector3 thisPos = __instance.entityPool[id].pos;
-            int position = IsBuildingPosXZCorrect(thisPos.x, thisPos.z, true, __instance.planet.radius == 100f);
-            int ringIndex = isBuildingPosYCorrect(thisPos, __instance.planet.radius == 100f);
-            if (ringIndex == -1 || position == -1) {
-                return;
-            }
-            var planetOrbitalRingData = OrbitalStationManager.Instance.GetPlanetOrbitalRingData(__instance.planet.id);
-            if (protoId == ProtoID.I太空电梯) {
-                if (planetOrbitalRingData == null)
+            if ((flag1 || flag2)) {
+                Vector3 thisPos = __instance.entityPool[id].pos;
+                int position = IsBuildingPosXZCorrect(thisPos.x, thisPos.z, true, __instance.planet.radius == 100f);
+                int ringIndex = isBuildingPosYCorrect(thisPos, __instance.planet.radius == 100f);
+                if (ringIndex == -1 || position == -1) {
                     return;
-                planetOrbitalRingData.Rings[ringIndex].RemoveElevator(position);
-            } else if (flag1) {
-                if (planetOrbitalRingData == null || planetOrbitalRingData.Rings.Count == 0)
-                    return;
-                planetOrbitalRingData.Rings[ringIndex].RemoveOrbitalStation(position);
-            } else if (flag2) {
-                if (planetOrbitalRingData == null)
-                    return;
-                planetOrbitalRingData.Rings[ringIndex].RemoveOrbitalCore(position);
-            }
-            // 每秒都会重新判断并更新，所以拆除时直接删除，有第二个突触凝练机会自己补充回来的
-            if (protoId == ProtoID.I突触凝练机) {
-                if (OrbitalBeacon.SynapticLathePlanet.ContainsKey(__instance.factorySystem)) {
-                    OrbitalBeacon.SynapticLathePlanet.Remove(__instance.factorySystem);
+                }
+                var planetOrbitalRingData = OrbitalStationManager.Instance.GetPlanetOrbitalRingData(__instance.planet.id);
+                if (protoId == ProtoID.I太空电梯) {
+                    if (planetOrbitalRingData == null)
+                        return;
+                    planetOrbitalRingData.Rings[ringIndex].RemoveElevator(position);
+                } else if (flag1) {
+                    if (planetOrbitalRingData == null || planetOrbitalRingData.Rings.Count == 0)
+                        return;
+                    planetOrbitalRingData.Rings[ringIndex].RemoveOrbitalStation(position);
+                } else if (flag2) {
+                    if (planetOrbitalRingData == null)
+                        return;
+                    planetOrbitalRingData.Rings[ringIndex].RemoveOrbitalCore(position);
+                }
+                // 每秒都会重新判断并更新，所以拆除时直接删除，有第二个突触凝练机会自己补充回来的
+                if (protoId == ProtoID.I突触凝练机) {
+                    if (OrbitalBeacon.SynapticLathePlanet.ContainsKey(__instance.factorySystem)) {
+                        OrbitalBeacon.SynapticLathePlanet.Remove(__instance.factorySystem);
+                    }
+                }
+                if (protoId == ProtoID.I星环对撞机) { // 星环对撞机，拆除，放开再建
+                    if (planetOrbitalRingData == null)
+                        return;
+                    planetOrbitalRingData.Rings[ringIndex].isParticleCollider = false;
                 }
             }
-            if (protoId == ProtoID.I星环对撞机) { // 星环对撞机，拆除，放开再建
-                if (planetOrbitalRingData == null)
-                    return;
-                planetOrbitalRingData.Rings[ringIndex].isParticleCollider = false;
-            }
             if (protoId == ProtoID.I轨道连接组件 || protoId == ProtoID.I粒子加速轨道 || protoId == ProtoID.I星环电网组件) {
+                var planetOrbitalRingData = OrbitalStationManager.Instance.GetPlanetOrbitalRingData(__instance.planet.id);
                 if (planetOrbitalRingData == null)
                     return;
-                //Vector3 thisPos = __instance.entityPool[id].pos;
-                (int positionIndex, int ringBeltIndex, int beltRingIndex) = CalculateRingPosMark(thisPos, __instance.planet.radius == 100f);
-                //var planetOrbitalRingData = OrbitalStationManager.Instance.GetPlanetOrbitalRingData(__instance.planet.id);
+                (int ringBeltIndex, int beltRingIndex) = CalculateRingPosMark(__instance.entityPool[id].pos, __instance.planet.radius == 100f);
                 if (protoId == ProtoID.I轨道连接组件) {
-                    planetOrbitalRingData.Rings[beltRingIndex].DelRing(positionIndex, ringBeltIndex, false);
+                    planetOrbitalRingData.Rings[beltRingIndex].DelRing(ringBeltIndex, false);
                 } else if (protoId == ProtoID.I粒子加速轨道 || protoId == ProtoID.I星环电网组件) {
-                    planetOrbitalRingData.Rings[beltRingIndex].DelRing(positionIndex, ringBeltIndex, true);
+                    planetOrbitalRingData.Rings[beltRingIndex].DelRing(ringBeltIndex, true);
                 }
             }
         }

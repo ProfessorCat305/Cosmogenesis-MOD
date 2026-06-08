@@ -13,16 +13,12 @@ namespace ProjectOrbitalRing.Patches.Logic.OrbitalRing
     {
         // 预计算所有标记角度（单位：度），赤道上下两圈，一圈40个
         private static readonly double[] MarkerAngles = new double[40];
-        private static readonly double[] RingMarkerAngles = new double[1000];
         private const double AngleTolerance = 0.25; // 允许的角度误差（度）
 
         public static void InitializeMarkerAngles()
         {
             for (int i = 0; i < 40; i++) {
                 MarkerAngles[i] = (i * 9.0) % 360.0; // 每9度一个标记
-            }
-            for (int i = 0; i < 1000; i++) {
-                RingMarkerAngles[i] = (i * 0.36) % 360.0; // 每0.36度一个标记
             }
         }
 
@@ -230,27 +226,15 @@ namespace ProjectOrbitalRing.Patches.Logic.OrbitalRing
             }
         }
 
-        public static (int positionIndex, int ringBeltIndex, int ringIndex) CalculateRingPosMark(Vector3 pos, bool isMoon)
+        public static (int ringBeltIndex, int ringIndex) CalculateRingPosMark(Vector3 pos, bool isMoon)
         {
-            int index = -1;
             int ringIndex = -1;
             int ringBeltIndex = -1;
-            // 计算向量角度（0°~360°）
-            double angle = (Math.Atan2(pos.z, pos.x) * 180.0 / Math.PI + 360.0) % 360.0;
-            // 检查是否接近任意标记
-            for (int i = 0; i < RingMarkerAngles.Length; i++) {
-                double diff = Math.Abs(angle - RingMarkerAngles[i]);
-                diff = Math.Min(diff, 360.0 - diff); // 处理环形差值
-                if (diff <= AngleTolerance) {
-                    index = i;
-                    //LogError($"CalculateRingPosMark index {index}");
-                }
-            }
+            // 坐标归一化后计算纬度角度（使用asin直接获取极角）
             Vector3 normalized = Vector3.Normalize(pos);
             double latitudeRad = Math.Asin(normalized.y);
             double latitudeDeg = latitudeRad * (180.0 / Math.PI);
             double border = 25 * 0.36 + 0.18;
-            //LogError($"CalculateRingPosMark latitudeDeg {latitudeDeg}");
             if (isMoon) {
                 if (-border <= latitudeDeg && latitudeDeg <= border) {
                     if (latitudeDeg >= 0) {
@@ -278,7 +262,7 @@ namespace ProjectOrbitalRing.Patches.Logic.OrbitalRing
                     }
                 }
             }
-            return (index, ringBeltIndex, ringIndex);
+            return (ringBeltIndex, ringIndex);
         }
 
         public static int isBeltBuildingPosYCorrect(Vector3 vector, int islimitSide, bool isMoon)

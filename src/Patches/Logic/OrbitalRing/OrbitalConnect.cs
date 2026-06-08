@@ -345,27 +345,44 @@ namespace ProjectOrbitalRing.Patches.Logic.OrbitalRing
 
 
 
-        [HarmonyPatch(typeof(PlanetFactory), nameof(PlanetFactory.BuildFinally))]
-        [HarmonyPrefix]
-        public static void BuildFinallyPrePatch(ref PlanetFactory __instance, int prebuildId)
+        //[HarmonyPatch(typeof(PlanetFactory), nameof(PlanetFactory.BuildFinally))]
+        //[HarmonyPrefix]
+        //public static void BuildFinallyPrePatch(ref PlanetFactory __instance, int prebuildId)
+        //{
+        //    if (prebuildId != 0) {
+        //        PrebuildData prebuildData = __instance.prebuildPool[prebuildId];
+        //        if (prebuildData.id == prebuildId) {
+        //            if (prebuildData.protoId == ProtoID.I轨道连接组件 || prebuildData.protoId == ProtoID.I粒子加速轨道 || prebuildData.protoId == ProtoID.I星环电网组件) {
+        //                //LogError($"BuildFinallyPostPatch");
+        //                Vector3 pos = prebuildData.pos;
+        //                (int positionIndex, int ringBeltIndex, int ringIndex) = CalculateRingPosMark(pos, __instance.planet.radius == 100f);
+        //                OrbitalStationManager.Instance.AddPlanetId(__instance.planet.id, __instance.planet.radius == 100f);
+        //                var planetOrbitalRingData = OrbitalStationManager.Instance.GetPlanetOrbitalRingData(__instance.planet.id);
+        //                if (prebuildData.protoId == ProtoID.I轨道连接组件) {
+        //                    planetOrbitalRingData.Rings[ringIndex].AddRing(positionIndex, ringBeltIndex, false);
+        //                } else if (prebuildData.protoId == ProtoID.I粒子加速轨道 || prebuildData.protoId == ProtoID.I星环电网组件) {
+        //                    planetOrbitalRingData.Rings[ringIndex].AddRing(positionIndex, ringBeltIndex, true);
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+
+        [HarmonyPatch(typeof(PlanetFactory), nameof(PlanetFactory.OnBeltBuilt))]
+        [HarmonyPostfix]
+        public static void OnBeltBuiltPostPatch(ref PlanetFactory __instance, int beltEntityId)
         {
-            if (prebuildId != 0) {
-                PrebuildData prebuildData = __instance.prebuildPool[prebuildId];
-                if (prebuildData.id == prebuildId) {
-                    if (prebuildData.protoId == ProtoID.I轨道连接组件 || prebuildData.protoId == ProtoID.I粒子加速轨道 || prebuildData.protoId == ProtoID.I星环电网组件) {
-                        //LogError($"BuildFinallyPostPatch");
-                        Vector3 pos = prebuildData.pos;
-                        (int positionIndex, int ringBeltIndex, int ringIndex) = CalculateRingPosMark(pos, __instance.planet.radius == 100f);
-                        OrbitalStationManager.Instance.AddPlanetId(__instance.planet.id, __instance.planet.radius == 100f);
-                        var planetOrbitalRingData = OrbitalStationManager.Instance.GetPlanetOrbitalRingData(__instance.planet.id);
-                        if (prebuildData.protoId == ProtoID.I轨道连接组件) {
-                            planetOrbitalRingData.Rings[ringIndex].AddRing(positionIndex, ringBeltIndex, false);
-                        } else if (prebuildData.protoId == ProtoID.I粒子加速轨道 || prebuildData.protoId == ProtoID.I星环电网组件) {
-                            planetOrbitalRingData.Rings[ringIndex].AddRing(positionIndex, ringBeltIndex, true);
-                        }
-                    }
-                }
+            int beltId = __instance.entityPool[beltEntityId].beltId;
+            if (beltId == 0) {
+                return;
             }
+            int itemId = __instance.entityPool[beltEntityId].protoId;
+            if (itemId != ProtoID.I轨道连接组件 && itemId != ProtoID.I粒子加速轨道 && itemId != ProtoID.I星环电网组件) {
+                return;
+            }
+            (int ringBeltIndex, int ringIndex) = CalculateRingPosMark(__instance.entityPool[beltEntityId].pos, __instance.planet.radius == 100f);
+            var planetOrbitalRingData = OrbitalStationManager.Instance.GetPlanetOrbitalRingData(__instance.planet.id);
+            planetOrbitalRingData.Rings[ringIndex].CheckRingIsComplete(__instance, beltId, ringBeltIndex, itemId);
         }
 
         // 拆除/击毁函数移动到OrbitalBuild里，待删除
