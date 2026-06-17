@@ -4,6 +4,7 @@ using System.Reflection.Emit;
 using System.Collections.Generic;
 using UnityEngine;
 using ProjectOrbitalRing.Patches.Logic.OrbitalRing;
+using static System.Collections.Specialized.BitVector32;
 
 namespace ProjectOrbitalRing.Patches.Logic.CurvatureLogistics
 {
@@ -541,7 +542,7 @@ namespace ProjectOrbitalRing.Patches.Logic.CurvatureLogistics
 
         [HarmonyPatch(typeof(PlanetFactory), nameof(PlanetFactory.EntityFastFillIn))]
         [HarmonyTranspiler]
-        public static IEnumerable<CodeInstruction> RunBehavior_Engage_AttackLaser_Ground_Transpiler(IEnumerable<CodeInstruction> instructions)
+        public static IEnumerable<CodeInstruction> PlanetFactory_EntityFastFillIn_Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             var matcher = new CodeMatcher(instructions);
 
@@ -557,6 +558,122 @@ namespace ProjectOrbitalRing.Patches.Logic.CurvatureLogistics
                 );
             //matcher.LogInstructionEnumeration();
             return matcher.InstructionEnumeration();
+        }
+
+        [HarmonyPrefix]
+        [HarmonyPatch(typeof(PlanetFactory), nameof(PlanetFactory.EntityAutoReplenishIfNeeded))]
+        public static bool PlanetFactory_EntityAutoReplenishIfNeeded_PrePatch(PlanetFactory __instance, int entityId, Vector2 tipUiPos, bool tipOnMouse = false)
+        {
+            if (__instance.gameData.guideRunning) {
+                return false;
+            }
+            Player mainPlayer = __instance.gameData.mainPlayer;
+            string text = "";
+            bool flag = false;
+            ref EntityData ptr = ref __instance.entityPool[entityId];
+            Vector3 vector = ptr.pos;
+            if (ptr.dispenserId > 0) {
+                DispenserComponent dispenserComponent = __instance.transport.dispenserPool[ptr.dispenserId];
+                if (dispenserComponent == null || !dispenserComponent.courierAutoReplenish) {
+                    return false;
+                }
+                vector += vector.normalized * 1f;
+                int num = dispenserComponent.workCourierDatas.Length - (dispenserComponent.idleCourierCount + dispenserComponent.workCourierCount);
+                if (num > 0) {
+                    int itemCount = mainPlayer.package.GetItemCount(5003);
+                    if (itemCount > 0) {
+                        int num2 = (itemCount < num) ? itemCount : num;
+                        int num3 = 5003;
+                        int num4 = num2;
+                        int num5 = 0;
+                        mainPlayer.package.TakeTailItems(ref num3, ref num4, out num5, false);
+                        if (num3 > 0 && num4 > 0) {
+                            dispenserComponent.idleCourierCount += num4;
+                            text += string.Format("已自动补充提示".Translate(), num4, LDB.items.Select(num3).name);
+                            if (num4 < num) {
+                                text += "自动补充物品不足0".Translate();
+                            }
+                            text += "\r\n";
+                            flag = true;
+                        }
+                    } else {
+                        text = text + string.Format("自动补充物品不足1".Translate(), LDB.items.Select(5003).name) + "\r\n";
+                    }
+                }
+            }
+            if (ptr.stationId > 0) {
+                StationComponent stationComponent = __instance.transport.stationPool[ptr.stationId];
+                if (stationComponent == null || stationComponent.isCollector || stationComponent.isVeinCollector) {
+                    return false;
+                }
+                vector += vector.normalized * 13f;
+                if (stationComponent.droneAutoReplenish) {
+                    int num6 = stationComponent.workDroneDatas.Length - (stationComponent.idleDroneCount + stationComponent.workDroneCount);
+                    if (num6 > 0) {
+                        int itemCount2 = mainPlayer.package.GetItemCount(5001);
+                        if (itemCount2 > 0) {
+                            int num7 = (itemCount2 < num6) ? itemCount2 : num6;
+                            int num8 = 5001;
+                            int num9 = num7;
+                            int num10 = 0;
+                            mainPlayer.package.TakeTailItems(ref num8, ref num9, out num10, false);
+                            if (num8 > 0 && num9 > 0) {
+                                stationComponent.idleDroneCount += num9;
+                                text += string.Format("已自动补充提示".Translate(), num9, LDB.items.Select(num8).name);
+                                if (num9 < num6) {
+                                    text += "自动补充物品不足0".Translate();
+                                }
+                                text += "\r\n";
+                                flag = true;
+                            }
+                        } else {
+                            text = text + string.Format("自动补充物品不足1".Translate(), LDB.items.Select(5001).name) + "\r\n";
+                        }
+                    }
+                }
+                if (stationComponent.isStellar && stationComponent.shipAutoReplenish) {
+                    int num11 = stationComponent.workShipDatas.Length - (stationComponent.idleShipCount + stationComponent.workShipCount);
+                    if (num11 > 0) {
+                        int shipItemId = ProtoID.I太空运输船;
+                        if (__instance.entityPool[stationComponent.entityId].protoId == ProtoID.I太空物流港) {
+                            shipItemId = ProtoID.I太空运输船;
+                        } else if (__instance.entityPool[stationComponent.entityId].protoId == ProtoID.I深空物流港) {
+                            shipItemId = ProtoID.I深空货舰;
+                        }
+                        int itemCount3 = mainPlayer.package.GetItemCount(shipItemId);
+                        if (itemCount3 > 0) {
+                            int num12 = (itemCount3 < num11) ? itemCount3 : num11;
+                            int num14 = num12;
+                            int num15 = 0;
+                            mainPlayer.package.TakeTailItems(ref shipItemId, ref num14, out num15, false);
+                            if (shipItemId > 0 && num14 > 0) {
+                                stationComponent.idleShipCount += num14;
+                                text += string.Format("已自动补充提示".Translate(), num14, LDB.items.Select(shipItemId).name);
+                                if (num14 < num11) {
+                                    text += "自动补充物品不足0".Translate();
+                                }
+                                text += "\r\n";
+                                flag = true;
+                            }
+                        } else {
+                            text = text + string.Format("自动补充物品不足1".Translate(), LDB.items.Select(shipItemId).name) + "\r\n";
+                        }
+                    }
+                }
+            }
+            if (!string.IsNullOrEmpty(text)) {
+                if (tipOnMouse) {
+                    UIRealtimeTip.Popup(text, false, 0);
+                } else if (tipUiPos.sqrMagnitude < 0.1f) {
+                    UIRealtimeTip.Popup(text, vector, false, 0);
+                } else {
+                    UIRealtimeTip.Popup(text, tipUiPos, false);
+                }
+                if (flag) {
+                    VFAudio.Create("equip-1", mainPlayer.transform, Vector3.zero, true, 4, -1, -1L);
+                }
+            }
+            return false;
         }
     }
 }

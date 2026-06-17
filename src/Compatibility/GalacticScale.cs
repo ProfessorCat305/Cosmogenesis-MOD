@@ -104,6 +104,7 @@ namespace ProjectOrbitalRing.Compatibility
                 HarmonyPatch.Patch(OnStarDataSet2, null, null,
                     new HarmonyMethod(typeof(GalacticScale), nameof(OnStarDataSet_ChangeVeinData_Transpiler)));
             }
+            ProjectOrbitalRing.GalacticScale2Compatibility = true;
         }
 
         public static IEnumerable<CodeInstruction> SetPlanetTheme_Transpiler(IEnumerable<CodeInstruction> instructions)

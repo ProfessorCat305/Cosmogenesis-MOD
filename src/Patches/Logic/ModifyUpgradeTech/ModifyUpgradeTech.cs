@@ -6,6 +6,8 @@ using System.IO;
 using System.Linq;
 using static ProjectOrbitalRing.ProjectOrbitalRing;
 using static ProjectOrbitalRing.Patches.Logic.ModifyUpgradeTech.AddUpgradeTech;
+using System.Collections.Generic;
+using System.Reflection.Emit;
 
 namespace ProjectOrbitalRing.Patches.Logic.ModifyUpgradeTech
 {
@@ -935,5 +937,27 @@ namespace ProjectOrbitalRing.Patches.Logic.ModifyUpgradeTech
                 }
             }
         }
+
+
+        [HarmonyPatch(typeof(UIGeneralTips), nameof(UIGeneralTips.OnTechUnlocked))]
+        [HarmonyTranspiler]
+        public static IEnumerable<CodeInstruction> UIGeneralTips_OnTechUnlocked_Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            var matcher = new CodeMatcher(instructions);
+
+            // 播放通关音乐从原版通关改为真通关
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4, 1508));
+
+            matcher.SetAndAdvance(OpCodes.Ldc_I4, 1814);
+
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4, 1508));
+
+            matcher.SetAndAdvance(OpCodes.Ldc_I4, 1814);
+
+            return matcher.InstructionEnumeration();
+        }
+
+
+
     }
 }

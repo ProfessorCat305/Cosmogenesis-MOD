@@ -65,7 +65,7 @@ namespace ProjectOrbitalRing
     {
         public const string MODGUID = "org.ProfessorCat305.OrbitalRing";
         public const string MODNAME = "OrbitalRing";
-        public const string VERSION = "1.0.9";
+        public const string VERSION = "1.0.10";
         public const string DEBUGVERSION = "";
 
 
@@ -74,6 +74,7 @@ namespace ProjectOrbitalRing
         public static bool LoadCompleted;
 
         public static bool MoreMegaStructureCompatibility = false;
+        public static bool GalacticScale2Compatibility = false;
 
         internal static ManualLogSource logger;
         internal static ConfigFile configFile;

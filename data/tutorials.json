@@ -106,13 +106,14 @@
             1
         ]
     },
-    //{
-    //    "ID": 42,
-    //    "Name": "不建议开GS介绍标题",
-    //    "LayoutFileName": "orbitalring-tutorials-42",
-    //    "DeterminatorName": "TOR_GameSecond",
-    //    "DeterminatorParams": [
-    //        7
-    //    ]
-    //}
+    {
+        "ID": 42,
+        "Name": "启动富勒醇介绍标题",
+        "LayoutFileName": "orbitalring-tutorials-42",
+        "DeterminatorName": "TOR_TechUnlocked",
+        "DeterminatorParams": [
+            1978,
+            1
+        ]
+    }
 ]

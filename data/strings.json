@@ -270,14 +270,14 @@
         "ENUS": "The following is a detailed description of the situation. If you don't want to read it, please skip to the conclusion below: \n When the products inside the production building are not extracted, causing a blockage, and the recipe execution progress has reached a full circle and stopped, canceling the recipe or demolishing the building at this time will result in the last circle having neither products nor raw materials, and the raw materials will also disappear directly. \n This is an issue in the original version, allegedly caused by solving a problem that doesn't exist in some situations, so this MOD is not responsible for fixing it. \n\n<color=\"#FD965ECC\">Conclusion:</color> \n <color=\"#FD965ECC\">Do not cancel or demolish the building when the production recipe execution progress is stalled at a full circle due to product blockage. If the recipe involves self-backfilling of products into raw materials, it will result in the disappearance of the self-backfilled raw materials in a cycle</color>"
     },
     {
-        "Name": "不建议开GS介绍标题",
-        "ZHCN": "不建议开 GalacticScale MOD",
-        "ENUS": "It is not recommended to enable the GalacticScale MOD"
+        "Name": "启动富勒醇介绍标题",
+        "ZHCN": "气巨手动采集富勒醇",
+        "ENUS": "Manually collect fullerenols from giant planets"
     },
     {
-        "Name": "不建议开GS介绍前字",
-        "ZHCN": "不建议星环MOD和GalacticScale MOD同开，有诸多未兼容的内容，可能出现的问题包括但不限于：\n  初始行星没有煤和硫磺等资源\n  采矿机覆盖矿簇范围异常\n  其他行星资源或星球特质异常\n  星环无法建成，导致所有以星环为前提的内容全部无法体验\n  变动星系生成导致死档。",
-        "ENUS": "It is not recommended to enable both the OrbitalRing MOD and the GalacticScale MOD simultaneously due to numerous incompatibilities. Potential issues may include, but are not limited to: \n  Initial planets lacking resources such as coal and sulfur \n  Abnormal coverage of mining clusters by mining machines \n  Abnormal resources or planet traits on other planets \n  Failure to build the Orbital ring, resulting in the inability to experience all content that relies on the Orbital ring\n  The generation of variable galaxies leads to dead save."
+        "Name": "启动富勒醇介绍前字",
+        "ZHCN": "在气巨上<color=\"#FD965ECC\">手动开采</color>气态巨行星物质<color=\"#FD965ECC\">概率</color>获得<color=\"#FD965ECC\">富勒醇</color>。",
+        "ENUS": "<color=\"#FD965ECC\">Manually mining</color> the gaseous giant planet's material on the gas giant with a <color=\"#FD965ECC\">probability</color> to obtain <color=\"#FD965ECC\">fullerenols</color>"
     },
     {
         "Name": "行星特质介绍标题",
@@ -336,8 +336,8 @@
     },
     {
         "Name": "真通关二阶说明介绍前字",
-        "ZHCN": "您现在成功进入真通关第二阶段，黑洞巨构正式命名为数学率引擎，解锁了<color=\"#FD965ECC\">数学率引擎-深蓝之井-运载火箭</color>，可以使用火箭建设节点以吸附游离的弹射物。电磁弹射器的弹射物从引力发生装置更换为<color=\"#FD965ECC\">反物质燃料棒</color>（也可以是<color=\"#FD965ECC\">奇异湮灭燃料棒</color>），自二阶开始，数学率引擎将<color=\"#FD965ECC\">不再计算游离的弹射物的功率</color>。\n\n当二阶数学率引擎达到9k休谟时<color=\"#FD965ECC\">解除</color>三阶科技的<color=\"#FD965ECC\">隐藏</color>，当三阶科技研究完成时，会<color=\"#FD965ECC\">立刻清空数学率引擎的游离弹射物</color>，请确保研究完成时所有的游离弹射物已经吸附完成。同时，会<color=\"#FD965ECC\">记录当前的休谟值</color>，三阶建造的节点和吸附的弹射物将不再直接增加休谟值，而是转化为<color=\"#FD965ECC\">系数</color>(系数为增加的休谟/15000)，<color=\"#FD965ECC\">系数乘以记录的休谟值才是最终的休谟值</color>，同时已存在的层数的节点将<color=\"#FD965ECC\">不再能吸附</color>，需要<color=\"#FD965ECC\">新建戴森层</color>，因此三阶科技请视情况自行决定研究完成的时机。",
-        "ENUS": "You have now successfully entered the second phase of the True Ending. The Black Hole Superstructure has been officially named the Mathematical Ratio Engine. The unlocking of <color=\"#FD965ECC\">the Mathematical Rate Engine - Well of Dark Blue - Launch Vehicle</color> allows you to use rockets to construct nodes to attract and capture free projectiles. The projectiles of the Electromagnetic Catapult have been replaced from gravitational generators to <color=\"#FD965ECC\">antimatter fuel rods</color> (which can also be <color=\"#FD965ECC\">exotic annihilation fuel rods</color>),Starting from Level 2, the Mathematical Rate Engine will <color=\"#FD965ECC\">no longer calculate the power of free-floating projectiles</color>.\n\n When the second level the Mathematical Rate Engine reaches 9k Hume, the <color=\"#FD965ECC\">hidden state</color> of the third-level technology will be <color=\"#FD965ECC\">lifted</color> . When Tier 3 technology research is completed, the free-floating projectiles of the Mathematical Rate Engine will be <color=\"#FD965ECC\">immediately cleared</color>. Please ensure that all free-floating projectiles have been adsorbed by the time research is completed. Additionally, the <color=\"#FD965ECC\">current Hume value will be recorded</color>, and nodes constructed in Tier 3 and adsorbed projectiles will no longer directly increase the Hume value. Instead, they will be converted into a <color=\"#FD965ECC\">coefficient</color> (coefficient is the increased Hume/10000), and the final Hume value will be calculated by <color=\"#FD965ECC\">multiplying the recorded Hume value by the coefficient</color>. Meanwhile, existing layers of nodes will <color=\"#FD965ECC\">no longer be able to adsorb</color>, requiring the construction of new Dyson layers. Therefore, please decide on the timing of completing Tier 3 technology research based on your situation."
+        "ZHCN": "您现在成功进入真通关第二阶段，黑洞巨构正式命名为数学率引擎，解锁了<color=\"#FD965ECC\">数学率引擎-深蓝之井-运载火箭</color>，可以使用火箭建设节点以吸附游离的弹射物。电磁弹射器的弹射物从引力发生装置更换为<color=\"#FD965ECC\">反物质燃料棒</color>（也可以是<color=\"#FD965ECC\">奇异湮灭燃料棒</color>），自二阶开始，数学率引擎将<color=\"#FD965ECC\">不再计算游离的弹射物的功率</color>。\n\n当二阶数学率引擎达到9k休谟时<color=\"#FD965ECC\">解除</color>三阶科技的<color=\"#FD965ECC\">隐藏</color>，当三阶科技研究完成时，会<color=\"#FD965ECC\">立刻清空数学率引擎的游离弹射物</color>，请确保研究完成时所有的游离弹射物已经吸附完成。同时，会<color=\"#FD965ECC\">记录当前的休谟值</color>，三阶建造的节点和吸附的弹射物将不再直接增加休谟值，而是转化为<color=\"#FD965ECC\">系数</color>(系数为增加的休谟/15000)，<color=\"#FD965ECC\">系数乘以记录的休谟值才是最终的休谟值</color>，同时<color=\"#FD965ECC\">已存在的层数</color>的节点将<color=\"#FD965ECC\">不再能吸附</color>（新建的层即认为已存在），需要<color=\"#FD965ECC\">新建戴森层</color>，因此三阶科技请视情况自行决定研究完成的时机。",
+        "ENUS": "You have now successfully entered the second phase of the True Ending. The Black Hole Superstructure has been officially named the Mathematical Ratio Engine. The unlocking of <color=\"#FD965ECC\">the Mathematical Rate Engine - Well of Dark Blue - Launch Vehicle</color> allows you to use rockets to construct nodes to attract and capture free projectiles. The projectiles of the Electromagnetic Catapult have been replaced from gravitational generators to <color=\"#FD965ECC\">antimatter fuel rods</color> (which can also be <color=\"#FD965ECC\">exotic annihilation fuel rods</color>),Starting from Level 2, the Mathematical Rate Engine will <color=\"#FD965ECC\">no longer calculate the power of free-floating projectiles</color>.\n\n When the second level the Mathematical Rate Engine reaches 9k Hume, the <color=\"#FD965ECC\">hidden state</color> of the third-level technology will be <color=\"#FD965ECC\">lifted</color> . When Tier 3 technology research is completed, the free-floating projectiles of the Mathematical Rate Engine will be <color=\"#FD965ECC\">immediately cleared</color>. Please ensure that all free-floating projectiles have been adsorbed by the time research is completed. Additionally, the <color=\"#FD965ECC\">current Hume value will be recorded</color>, and nodes constructed in Tier 3 and adsorbed projectiles will no longer directly increase the Hume value. Instead, they will be converted into a <color=\"#FD965ECC\">coefficient</color> (coefficient is the increased Hume/10000), and the final Hume value will be calculated by <color=\"#FD965ECC\">multiplying the recorded Hume value by the coefficient</color>. Meanwhile, <color=\"#FD965ECC\">existing layers</color> of nodes will <color=\"#FD965ECC\">no longer be able to adsorb</color>(The newly created layer is assumed to already exist), requiring the construction of new Dyson layers. Therefore, please decide on the timing of completing Tier 3 technology research based on your situation."
     },
     {
         "Name": "真通关三阶说明介绍标题",
@@ -786,8 +786,8 @@
     },
     {
         "Name": "I种子",
-        "ZHCN": "采集自本地生态圈的种子，来源广泛，可定向培育为各种工业作物。",
-        "ENUS": "Collecting seeds from local ecosystems, with a wide range of sources, can be selectively cultivated into various industrial crops."
+        "ZHCN": "采集自本地生态圈的种子，来源广泛，可定向培育为各种工业作物。\n<color=\"#FD965ECC\">砍树概率掉落</color>",
+        "ENUS": "Collecting seeds from local ecosystems, with a wide range of sources, can be selectively cultivated into various industrial crops.\n<color=\"#FD965ECC\">Chop down trees for probability of dropping items</color>"
     },
     {
         "Name": "速生林",
@@ -1600,8 +1600,8 @@
     },
     {
         "Name": "I激素生长菌群",
-        "ZHCN": "取材于本土伴生菌种，通过定向培育筛选，最终培育出能高效吸收转化植物生长所需元素，还能分泌促进植物生长激素的复合伴生菌种。",
-        "ENUS": "Derived from local companion strains, through targeted cultivation and screening, a composite companion strain capable of efficiently absorbing and transforming the elements required for plant growth, as well as secreting growth promoting hormones, was ultimately cultivated."
+        "ZHCN": "取材于本土伴生菌种，通过定向培育筛选，最终培育出能高效吸收转化植物生长所需元素，还能分泌促进植物生长激素的复合伴生菌种。\n<color=\"#FD965ECC\">砍树概率掉落</color>",
+        "ENUS": "Derived from local companion strains, through targeted cultivation and screening, a composite companion strain capable of efficiently absorbing and transforming the elements required for plant growth, as well as secreting growth promoting hormones, was ultimately cultivated.\n<color=\"#FD965ECC\">Chop down trees for probability of dropping items</color>"
     },
     {
         "Name": "定向筛选培育",
@@ -2266,7 +2266,7 @@
     {
         "Name": "T富勒烯研究",
         "ZHCN": "碳是一种神奇的元素，在材料学上光只有它一种元素就有无定形碳，石墨，钻石，石墨烯，碳纳米管等诸多结构，而现在，还有一种结构：球形碳富勒烯，无论是在球内内嵌原子，还是在球面节点上增加功能基团，都有重要的工业意义。\n在气巨上<color=\"#FD965ECC\">手动开采</color>气态巨行星物质<color=\"#FD965ECC\">概率</color>获得<color=\"#FD965ECC\">富勒醇</color>",
-        "ENUS": "Carbon is a magical element, and in materials science, there are many structures of amorphous carbon, graphite, diamond, graphene, carbon nanotubes, and so on. Nowadays, there is also a structure called spherical carbon fullerene, which has important industrial significance whether it is embedding atoms inside the sphere or adding functional groups to the spherical nodes."
+        "ENUS": "Carbon is a magical element, and in materials science, there are many structures of amorphous carbon, graphite, diamond, graphene, carbon nanotubes, and so on. Nowadays, there is also a structure called spherical carbon fullerene, which has important industrial significance whether it is embedding atoms inside the sphere or adding functional groups to the spherical nodes.\n <color=\"#FD965ECC\">Manually mining</color> the gaseous giant planet's material on the gas giant with a <color=\"#FD965ECC\">probability</color> to obtain <color=\"#FD965ECC\">fullerenols</color>"
     },
     {
         "Name": "富勒醇",
@@ -3477,8 +3477,8 @@
     },
     {
         "Name": "T伴生菌种培育描述",
-        "ZHCN": "相比寄生，伴生菌种与宿主之间的互惠互利的关系更加难得，因此伴生菌种难以公式化地培育使用，建议还是从本土的生态圈中采集，再进行定向培育。",
-        "ENUS": "Compared to parasitism, the mutually beneficial relationship between companion strains and hosts is more difficult, so it is difficult to cultivate and use companion strains in a formulaic manner. It is recommended to collect them from the local ecosystem and then conduct targeted cultivation."
+        "ZHCN": "相比寄生，伴生菌种与宿主之间的互惠互利的关系更加难得，因此伴生菌种难以公式化地培育使用，建议还是从本土的生态圈中采集，再进行定向培育。\n<color=\"#FD965ECC\">砍树概率掉落激素生长菌群</color>",
+        "ENUS": "Compared to parasitism, the mutually beneficial relationship between companion strains and hosts is more difficult, so it is difficult to cultivate and use companion strains in a formulaic manner. It is recommended to collect them from the local ecosystem and then conduct targeted cultivation.\n<color=\"#FD965ECC\">The probability of cutting down trees is to drop hormone-producing bacterial flora</color>"
     },
     {
         "Name": "T高速菌种研究",
@@ -3757,8 +3757,8 @@
     },
     {
         "Name": "I空轨",
-        "ZHCN": "专门为了运输设计的高空货运轨道，使用磁悬浮技术最大程度减小阻力，以实现超高速货物运输，物流立交之间将被它串联成一张大网，最终形成新的一层人造地面。\n只能在<color=\"#FD965ECC\">16层及以上高度</color>使用",
-        "ENUS": "A high-altitude freight track specially designed for transportation, using magnetic levitation technology to minimize resistance and achieve ultra high speed cargo transportation. The logistics interchanges will be connected into a large network by it, ultimately forming a new layer of artificial ground.\nCan only be used at <color=\"#FD965ECC\">heights of 16 floors and above</color>"
+        "ZHCN": "专门为了运输设计的高空货运轨道，使用磁悬浮技术最大程度减小阻力，以实现超高速货物运输，物流立交之间将被它串联成一张大网，最终形成新的一层人造地面。\n默认建造高度位于17层\n只能在<color=\"#FD965ECC\">16层及以上高度</color>使用",
+        "ENUS": "A high-altitude freight track specially designed for transportation, using magnetic levitation technology to minimize resistance and achieve ultra high speed cargo transportation. The logistics interchanges will be connected into a large network by it, ultimately forming a new layer of artificial ground.\nThe default building height is set at 17 floors \nCan only be used at <color=\"#FD965ECC\">heights of 16 floors and above</color>"
     },
     {
         "Name": "行星物流系统描述",

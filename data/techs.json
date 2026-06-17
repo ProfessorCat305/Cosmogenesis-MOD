@@ -4431,9 +4431,7 @@
             1
         ],
         "HashNeeded": 3600,
-        "UnlockRecipes": [
-
-        ],
+        "UnlockRecipes": [],
         "UnlockFunctions": [],
         "UnlockValues": [],
         "Published": true,

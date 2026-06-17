@@ -49,8 +49,8 @@ namespace ProjectOrbitalRing.Compatibility
             HarmonyPatch.Patch(AccessTools.Method(assembly.GetType("MoreMegaStructure.MoreMegaStructure"), "SetMegaStructure"), null,
                 new HarmonyMethod(typeof(MoreMegaStructure), nameof(SetMegaStructure_Postfix)));
 
-            //HarmonyPatch.Patch(AccessTools.Method(assembly.GetType("MoreMegaStructure.MoreMegaStructure"), "SiloUpdatePatch"), null,
-            //    new HarmonyMethod(typeof(MoreMegaStructure), nameof(SiloUpdatePatch_Postfix)));
+            HarmonyPatch.Patch(AccessTools.Method(assembly.GetType("MoreMegaStructure.MoreMegaStructure"), "DysonSphereGameTickPostPatch"), null, null,
+                new HarmonyMethod(typeof(MoreMegaStructure), nameof(DysonSphereGameTickPostPatch_Transpiler)));
 
             HarmonyPatch.Patch(AccessTools.Method(typeof(VFPreload), nameof(VFPreload.InvokeOnLoadWorkEnded)), null,
                 new HarmonyMethod(typeof(MoreMegaStructure), nameof(LDBToolOnPostAddDataAction))
@@ -343,6 +343,30 @@ namespace ProjectOrbitalRing.Compatibility
                         __instance.bulletId = bulletIdExpected;
                     }
                 }
+            }
+        }
+
+        // 科学枢纽，在判断消耗物是黑糖就返回前，插入，如果科技IsLabTech为false，就直接返回
+        public static IEnumerable<CodeInstruction> DysonSphereGameTickPostPatch_Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            try {
+                var matcher = new CodeMatcher(instructions);
+
+                matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4, 5201));
+
+                object techProto = matcher.Advance(-4).Operand;
+                object returnLabel = matcher.Advance(9).Operand;
+
+                matcher.Advance(-11).InsertAndAdvance(
+                    new CodeInstruction(OpCodes.Ldloc_S, techProto),
+                    new CodeInstruction(OpCodes.Ldfld, AccessTools.Field(typeof(TechProto), nameof(TechProto.IsLabTech))),
+                    new CodeInstruction(OpCodes.Brfalse_S, returnLabel)
+                );
+
+                return matcher.InstructionEnumeration();
+            } catch {
+                // 如果后续巨构mod改了，任意匹配/偏移异常，原样返回IL，静默失败
+                return instructions;
             }
         }
     }

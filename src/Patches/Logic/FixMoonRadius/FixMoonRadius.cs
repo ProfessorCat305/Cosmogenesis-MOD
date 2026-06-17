@@ -67,6 +67,7 @@ namespace ProjectOrbitalRing.Patches.Logic.FixMoonRadius
 
         public static T GetRadiusFromLocalPlanet<T>(T t)
         {
+            if (ProjectOrbitalRing.GalacticScale2Compatibility) return t;
             var realRadius = ModifyRadius(Convert.ToSingle(t), GameMain.localPlanet?.realRadius ?? 200f);
             // if (VFInput.alt) GS2.Log($"GetRadius Called By {GS2.GetCaller(0)} {GS2.GetCaller(1)} {GS2.GetCaller(2)} orig:{Convert.ToDouble(t)} returning {realRadius}");
             return (T)Convert.ChangeType(realRadius, typeof(T));
