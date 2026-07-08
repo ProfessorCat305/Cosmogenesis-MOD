@@ -7166,9 +7166,8 @@
         "SubID": 0,
         "MiningFrom": "",
         "ProduceFrom": "",
-        "Grade": 2,
+        "Grade": 1,
         "Upgrades": [
-            2309,
             7823,
             2317
         ],

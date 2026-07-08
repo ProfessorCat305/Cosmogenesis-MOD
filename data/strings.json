@@ -322,7 +322,7 @@
     {
         "Name": "真通关一阶说明介绍标题",
         "ZHCN": "真通关一阶说明",
-        "ENUS": "Instructions for True Ending Level 1"
+        "ENUS": "Instructions for True Ending first phase"
     },
     {
         "Name": "真通关一阶说明介绍前字",
@@ -332,22 +332,22 @@
     {
         "Name": "真通关二阶说明介绍标题",
         "ZHCN": "真通关二阶说明",
-        "ENUS": "Instructions for True Ending Level 2"
+        "ENUS": "Instructions for True Ending second phase"
     },
     {
         "Name": "真通关二阶说明介绍前字",
-        "ZHCN": "您现在成功进入真通关第二阶段，黑洞巨构正式命名为数学率引擎，解锁了<color=\"#FD965ECC\">数学率引擎-深蓝之井-运载火箭</color>，可以使用火箭建设节点以吸附游离的弹射物。电磁弹射器的弹射物从引力发生装置更换为<color=\"#FD965ECC\">反物质燃料棒</color>（也可以是<color=\"#FD965ECC\">奇异湮灭燃料棒</color>），自二阶开始，数学率引擎将<color=\"#FD965ECC\">不再计算游离的弹射物的功率</color>。\n\n当二阶数学率引擎达到9k休谟时<color=\"#FD965ECC\">解除</color>三阶科技的<color=\"#FD965ECC\">隐藏</color>，当三阶科技研究完成时，会<color=\"#FD965ECC\">立刻清空数学率引擎的游离弹射物</color>，请确保研究完成时所有的游离弹射物已经吸附完成。同时，会<color=\"#FD965ECC\">记录当前的休谟值</color>，三阶建造的节点和吸附的弹射物将不再直接增加休谟值，而是转化为<color=\"#FD965ECC\">系数</color>(系数为增加的休谟/15000)，<color=\"#FD965ECC\">系数乘以记录的休谟值才是最终的休谟值</color>，同时<color=\"#FD965ECC\">已存在的层数</color>的节点将<color=\"#FD965ECC\">不再能吸附</color>（新建的层即认为已存在），需要<color=\"#FD965ECC\">新建戴森层</color>，因此三阶科技请视情况自行决定研究完成的时机。",
-        "ENUS": "You have now successfully entered the second phase of the True Ending. The Black Hole Superstructure has been officially named the Mathematical Ratio Engine. The unlocking of <color=\"#FD965ECC\">the Mathematical Rate Engine - Well of Dark Blue - Launch Vehicle</color> allows you to use rockets to construct nodes to attract and capture free projectiles. The projectiles of the Electromagnetic Catapult have been replaced from gravitational generators to <color=\"#FD965ECC\">antimatter fuel rods</color> (which can also be <color=\"#FD965ECC\">exotic annihilation fuel rods</color>),Starting from Level 2, the Mathematical Rate Engine will <color=\"#FD965ECC\">no longer calculate the power of free-floating projectiles</color>.\n\n When the second level the Mathematical Rate Engine reaches 9k Hume, the <color=\"#FD965ECC\">hidden state</color> of the third-level technology will be <color=\"#FD965ECC\">lifted</color> . When Tier 3 technology research is completed, the free-floating projectiles of the Mathematical Rate Engine will be <color=\"#FD965ECC\">immediately cleared</color>. Please ensure that all free-floating projectiles have been adsorbed by the time research is completed. Additionally, the <color=\"#FD965ECC\">current Hume value will be recorded</color>, and nodes constructed in Tier 3 and adsorbed projectiles will no longer directly increase the Hume value. Instead, they will be converted into a <color=\"#FD965ECC\">coefficient</color> (coefficient is the increased Hume/10000), and the final Hume value will be calculated by <color=\"#FD965ECC\">multiplying the recorded Hume value by the coefficient</color>. Meanwhile, <color=\"#FD965ECC\">existing layers</color> of nodes will <color=\"#FD965ECC\">no longer be able to adsorb</color>(The newly created layer is assumed to already exist), requiring the construction of new Dyson layers. Therefore, please decide on the timing of completing Tier 3 technology research based on your situation."
+        "ZHCN": "您现在成功进入真通关第二阶段，黑洞巨构正式命名为数学率引擎，解锁了<color=\"#FD965ECC\">数学率引擎-深蓝之井-运载火箭</color>，可以使用火箭建设节点以吸附游离的弹射物。电磁弹射器的弹射物从引力发生装置更换为<color=\"#FD965ECC\">反物质燃料棒</color>（也可以是<color=\"#FD965ECC\">奇异湮灭燃料棒</color>），自二阶开始，数学率引擎将<color=\"#FD965ECC\">不再计算游离的弹射物的功率</color>。\n\n当二阶数学率引擎达到9k休谟时<color=\"#FD965ECC\">解除</color>三阶科技的<color=\"#FD965ECC\">隐藏</color>，当三阶科技研究完成时，会<color=\"#FD965ECC\">立刻清空数学率引擎的游离弹射物</color>，请确保研究完成时所有的游离弹射物已经吸附完成。同时，会<color=\"#FD965ECC\">记录当前的休谟值</color>，三阶建造的节点和吸附的弹射物将不再直接增加休谟值，而是转化为<color=\"#FD965ECC\">系数</color>(系数为增加的休谟/15000)，<color=\"#FD965ECC\">系数乘以记录的休谟值才是最终的休谟值</color>，同时<color=\"#FD965ECC\">已存在的层数</color>的节点将<color=\"#FD965ECC\">不再能吸附</color>（新建的层即认为已存在，因此<color=\"#FD965ECC\">不要在二阶用完所有层</color>），需要<color=\"#FD965ECC\">新建戴森层</color>，因此三阶科技请视情况自行决定研究完成的时机。",
+        "ENUS": "You have now successfully entered the second phase of the True Ending. The Black Hole Superstructure has been officially named the Mathematical Ratio Engine. The unlocking of <color=\"#FD965ECC\">the Mathematical Rate Engine - Well of Dark Blue - Launch Vehicle</color> allows you to use rockets to construct nodes to attract and capture free projectiles. The projectiles of the Electromagnetic Catapult have been replaced from gravitational generators to <color=\"#FD965ECC\">antimatter fuel rods</color> (which can also be <color=\"#FD965ECC\">exotic annihilation fuel rods</color>),Starting from second phase, the Mathematical Rate Engine will <color=\"#FD965ECC\">no longer calculate the power of free-floating projectiles</color>.\n\n When the second phase the Mathematical Rate Engine reaches 9k Hume, the <color=\"#FD965ECC\">hidden state</color> of the third phase technology will be <color=\"#FD965ECC\">lifted</color> . When third phase technology research is completed, the free-floating projectiles of the Mathematical Rate Engine will be <color=\"#FD965ECC\">immediately cleared</color>. Please ensure that all free-floating projectiles have been adsorbed by the time research is completed. Additionally, the <color=\"#FD965ECC\">current Hume value will be recorded</color>, and nodes constructed in second phase and adsorbed projectiles will no longer directly increase the Hume value. Instead, they will be converted into a <color=\"#FD965ECC\">coefficient</color> (coefficient is the increased Hume/10000), and the final Hume value will be calculated by <color=\"#FD965ECC\">multiplying the recorded Hume value by the coefficient</color>. Meanwhile, <color=\"#FD965ECC\">existing layers</color> of nodes will <color=\"#FD965ECC\">no longer be able to adsorb</color>(The newly created layer is assumed to already exist,Therefore,<color=\"#FD965ECC\">do not use up all layers in the second phase</color>), requiring the construction of new Dyson layers. Therefore, please decide on the timing of completing third phase technology research based on your situation."
     },
     {
         "Name": "真通关三阶说明介绍标题",
         "ZHCN": "真通关三阶说明",
-        "ENUS": "Instructions for True Ending Level 3"
+        "ENUS": "Instructions for True Ending third phase"
     },
     {
         "Name": "真通关三阶说明介绍前字",
         "ZHCN": "您已进入真通关最后阶段，发射井火箭更换为<color=\"#FD965ECC\">数学率引擎-起振焦点-运载火箭</color>。电磁弹射器的弹射物从反物质燃料棒更换为<color=\"#FD965ECC\">引力钻头</color>。\n\n数学率引擎第三阶段的功率计算为：进入第三阶段时二阶达到的休谟值 乘以 （在第三阶段新增的休谟值 除以 15000）等于 最终显示的休谟值。\n\n<color=\"#FD965ECC\">当数学率引擎在第三阶段达到20k休谟值时，视为达成真通关</color>",
-        "ENUS": "You have entered the final stage of true clearance, where the silo rocket is replaced with <color=\"#FD965ECC\">the Mathematical Rate Engine - Vibration Excitation Focus - Launch Vehicle</color>. The projectile of the electromagnetic launcher is changed from antimaterial fuel rods to <color=\"#FD965ECC\">gravitational drill bits</color>. \n\nThe power calculation for the third stage of the mathematical rate engine is: the Hume value reached in the second stage when entering the third stage multiplied by (the newly added Hume value in the third stage divided by 15000) equals the final displayed Hume value. \n\n<color=\"#FD965ECC\">When the mathematical rate engine reaches a Hume value of 20k in the third stage, it is considered to have achieved True Ending</color>"
+        "ENUS": "You have entered the final stage of true clearance, where the silo rocket is replaced with <color=\"#FD965ECC\">the Mathematical Rate Engine - Vibration Excitation Focus - Launch Vehicle</color>. The projectile of the electromagnetic launcher is changed from antimaterial fuel rods to <color=\"#FD965ECC\">gravitational drill bits</color>. \n\nThe power calculation for the third phase of the mathematical rate engine is: the Hume value reached in the second stage when entering the third stage multiplied by (the newly added Hume value in the third phase divided by 15000) equals the final displayed Hume value. \n\n<color=\"#FD965ECC\">When the mathematical rate engine reaches a Hume value of 20k in the third phase, it is considered to have achieved True Ending</color>"
     },
     {
         "Name": "离星燃料消耗描述",
@@ -1391,7 +1391,7 @@
     {
         "Name": "T星环伺服天穹",
         "ZHCN": "星环代表了行星开发的高度，在高度发达的工业行星，星环能从伺服天穹组件统筹协调全行星的工厂，抬头就能望见的星环将在天穹俯视全球的工厂，并为全球工厂提供预加工伺服能力。",
-        "ENUS": "OrbitalRing represent the height of planetary development. In highly developed industrial planets, Orbital Rings can coordinate factories across the planet from servo dome components. The visible Orbital Rings will overlook factories around the world from the sky and provide pre-processing servo capabilities for factories worldwide."
+        "ENUS": "OrbitalRing represent the height of planetary development. In highly developed industrial planets, Orbital Rings can coordinate factories across the planet from servo dome components. The visible Orbital Rings will overlook factories around the world from the sky and provide pre-processing servo capabilities for factories planetwide."
     },
     {
         "Name": "伺服天穹组件",
@@ -1401,7 +1401,7 @@
     {
         "Name": "I伺服天穹组件",
         "ZHCN": "安装在天枢座的大型服务器群集组件，利用石墨烯的超高导热性，以面积巨大的散热膜维持这个行星级超算服务器的散热，当所属的星环建设完整时，将为全行星的制造台提供预加工伺服能力。\n<color=\"#FD965ECC\">建造在拥有完整星环的天枢座，且供电充足时，为全球的制造台提供一级增产状态</color>",
-        "ENUS": "The large server cluster component installed in the constellation of the Celestial Pivot utilizes the ultra-high thermal conductivity of graphene and a large heat dissipation film to maintain the heat dissipation of this row star supercomputer server. When the corresponding Orbital Ring is fully constructed, it will provide pre-processing servo capabilities for the manufacturing stations of the entire planet.\n<color=\"#FD965ECC\">Built in the constellation of Nexus with a complete orbital ring and sufficient power supply, it provides a first level production status for manufacturing stations worldwide</color>"
+        "ENUS": "The large server cluster component installed in the constellation of the Celestial Pivot utilizes the ultra-high thermal conductivity of graphene and a large heat dissipation film to maintain the heat dissipation of this row star supercomputer server. When the corresponding Orbital Ring is fully constructed, it will provide pre-processing servo capabilities for the manufacturing stations of the entire planet.\n<color=\"#FD965ECC\">Built in the constellation of Tianzhu Seat with a complete orbital ring and sufficient power supply, it provides a first level production status for assemblers planetwide</color>"
     },
     {
         "Name": "智能方尖碑",
@@ -1416,7 +1416,7 @@
     {
         "Name": "I智能方尖碑",
         "ZHCN": "安装在天枢座的超级量子超算，强大的算力通过星环能对全球每一个工厂的每一次制造过程都提供独立的定制优化加工方案，只有极为繁荣的工业星才会安装这种协调中枢。\n<color=\"#FD965ECC\">建造在拥有完整星环的天枢座，且供电充足时，为全球的制造台提供二级增产状态</color>",
-        "ENUS": "The super quantum supercomputer installed in the constellation of the Celestial Pivot provides independent customized and optimized processing solutions for every manufacturing process in every factory around the world through its powerful computing power. Only highly prosperous industrial stars would install this coordination center.\n<color=\"#FD965ECC\">Built in the constellation of Nexus with a complete orbital ring and sufficient power supply, it provides a second level production status for manufacturing stations worldwide</color>"
+        "ENUS": "The super quantum supercomputer installed in the constellation of the Celestial Pivot provides independent customized and optimized processing solutions for every manufacturing process in every factory around the world through its powerful computing power. Only highly prosperous industrial stars would install this coordination center.\n<color=\"#FD965ECC\">Built in the constellation of Tianzhu Seat with a complete orbital ring and sufficient power supply, it provides a second level production status for assemblers planetwide</color>"
     },
     {
         "Name": "亿万械国",
@@ -1431,7 +1431,7 @@
     {
         "Name": "I亿万械国",
         "ZHCN": "加载了量子虚拟生命的超级量子超算，在天枢座上能将这个生命的“触感”延申至全球的制造台，其“机魂”能更加细致的分辨出零件的差异，哪怕在传感器里它们的数据完全一样。\n<color=\"#FD965ECC\">建造在拥有完整星环的天枢座，且供电充足时，为全球的制造台提供三级增产状态</color>",
-        "ENUS": "The super quantum supercomputer, loaded with quantum virtual life, can extend the \"touch\" of this life to manufacturing platforms worldwide on the Tian Shu Zuo. Its \"machine soul\" can distinguish the differences in parts more precisely, even if their data are exactly the same in the sensors.\n<color=\"#FD965ECC\">Built in the constellation of Nexus with a complete orbital ring and sufficient power supply, it provides a third level production status for manufacturing stations worldwide</color>"
+        "ENUS": "The super quantum supercomputer, loaded with quantum virtual life, can extend the \"touch\" of this life to assemblers planetwide on the Tian Shu Zuo. Its \"machine soul\" can distinguish the differences in parts more precisely, even if their data are exactly the same in the sensors.\n<color=\"#FD965ECC\">Built in the constellation of Tianzhu Seat with a complete orbital ring and sufficient power supply, it provides a third level production status for assemblers planetwide</color>"
     },
     {
         "Name": "铀燃料棒",
@@ -4359,7 +4359,7 @@
     },
     {
         "Name": "I太空物流港",
-        "ZHCN": "巨大的同步轨道物流港，比起“天勾”系统，物流港能实现行星之间更便捷的物资运输，它是行星内文明迈向星际文明的第一步，是将星球工厂连结成一个庞大的工业帝国的开始。\n<color=\"#FD965ECC\">需要由底下的太空电梯提供物资的行星内转运</color>\n在星环共享空间中的默认储存上限为<color=\"#FD965ECC\">50</color>",
+        "ZHCN": "巨大的同步轨道物流港，比起“天钩”系统，物流港能实现行星之间更便捷的物资运输，它是行星内文明迈向星际文明的第一步，是将星球工厂连结成一个庞大的工业帝国的开始。\n<color=\"#FD965ECC\">需要由底下的太空电梯提供物资的行星内转运</color>\n在星环共享空间中的默认储存上限为<color=\"#FD965ECC\">50</color>",
         "ENUS": "The huge synchronous orbit logistics port, compared to the \"Sky Hook\" system, can achieve more convenient material transportation between planets. It is the first step for planetary civilizations to move towards interstellar civilization and the beginning of connecting planetary factories into a huge industrial empire.\n<color=\"#FD965ECC\">The planetary transportation of supplies needs to be provided by the space elevator below</color>\nThe default storage capacity limit in the Star Ring shared space is <color=\"#FD965ECC\">50</color>"
     },
     {
@@ -4379,8 +4379,8 @@
     },
     {
         "Name": "I超空间中继器基座",
-        "ZHCN": "这是一种巨行星用的大型轨道设施，它工作在气巨轨道，将就地抽取的氘并输入内部的聚变堆组，以实现能源自维持。大型谐振盘阵列将共鸣核心发出的引力波，以构建出横跨星系的曲率通道。\n<color=\"#FD965ECC\">需要安装核心才能发挥作用</color>\n在星环共享空间中的默认储存上限为<color=\"#FD965ECC\">50</color>",
-        "ENUS": "This is a large-scale orbital facility used for giant planets, which operates in gas giant orbits, extracting deuterium locally and inputting it into the internal fusion reactor group to achieve self-sustaining energy. The large resonant disk array generates gravitational waves from the resonant core to construct curvature channels across the galaxy.\n<color=\"#FD965ECC\">Core installation is required to be effective</color>\nThe default storage capacity limit in the Star Ring shared space is <color=\"#FD965ECC\">50</color>"
+        "ZHCN": "这是一种巨行星用的大型轨道设施，它工作在气巨轨道，将就地抽取氘并输入内部的聚变堆组，以实现能源自维持。大型谐振盘阵列将共鸣核心发出的引力波，以构建出横跨星系的曲率通道。\n建造于<color=\"#FD965ECC\">巨行星</color>\n<color=\"#FD965ECC\">需要安装核心才能发挥作用</color>\n在星环共享空间中的默认储存上限为<color=\"#FD965ECC\">50</color>",
+        "ENUS": "This is a large-scale orbital facility used for giant planets, which operates in gas giant orbits, extracts deuterium locally and inputs it into the internal fusion reactor group to achieve self-sustaining energy. The large Resonant disc array generates gravitational waves from the resonant core to construct curvature channels across the galaxy.\nBuilt on a <color=\"#FD965ECC\">Giant Planet</color>\n<color=\"#FD965ECC\">Core installation is required to be effective</color>\nThe default storage capacity limit in the Star Ring shared space is <color=\"#FD965ECC\">50</color>"
     },
     {
         "Name": "超空间中继器核心",
@@ -4444,8 +4444,8 @@
     },
     {
         "Name": "宇宙探索1解锁",
-        "ZHCN": "建造 战场分析基站 以解锁该科技",
-        "ENUS": "Building battlefield analysis base station to unlock this technology"
+        "ZHCN": "在星球上建造 战场分析基站 以解锁该科技",
+        "ENUS": "Building battlefield analysis base station on planet to unlock this technology"
     },
     {
         "Name": "此科技不消耗物品研究",
@@ -4459,8 +4459,8 @@
     },
     {
         "Name": "宇宙探索2解锁",
-        "ZHCN": "建造 勘察卫星 以解锁该科技",
-        "ENUS": "Building survey satellite to unlock this technology"
+        "ZHCN": "在星球上建造 勘察卫星 以解锁该科技",
+        "ENUS": "Building survey satellite on planet to unlock this technology"
     },
     {
         "Name": "I建造勘察卫星以完成研究",
@@ -4469,8 +4469,8 @@
     },
     {
         "Name": "宇宙探索3解锁",
-        "ZHCN": "建造 轨道观测站 以解锁该科技",
-        "ENUS": "Building Orbital Observation Station to unlock this technology"
+        "ZHCN": "在星球上建造 轨道观测站 以解锁该科技",
+        "ENUS": "Building Orbital Observation Station on planet to unlock this technology"
     },
     {
         "Name": "I建造轨道观测站以完成研究",
@@ -4479,8 +4479,8 @@
     },
     {
         "Name": "宇宙探索4解锁",
-        "ZHCN": "派遣 100个勘探船 以解锁该科技",
-        "ENUS": "Consume 100 exploration ships to unlock this technology"
+        "ZHCN": "派遣（研究消耗） 100个勘探船 以解锁该科技",
+        "ENUS": "Consume(Research consumption) 100 exploration ships to unlock this technology"
     },
     {
         "Name": "T宇宙探索1",
@@ -5002,8 +5002,8 @@
     },
     {
         "Name": "I无尽水罐",
-        "ZHCN": "从人们潜意识里沟壑难平的欲望中打捞出来的水罐，其无限涌出的液体，是否有填平欲望的一天？\n输入5000任意一种流体后，将<color=\"#FD965ECC\">无限</color>输出该流体",
-        "ENUS": "The water jar, salvaged from the deep and unquenchable desires lurking in people's subconscious, will its endless flow of liquid ever fill up those desires one day?\n After inputting 5000 units of any fluid, output the fluid <color=\"#FD965ECC\">infinitely</color>"
+        "ZHCN": "从人们潜意识里沟壑难平的欲望中打捞出来的水罐，其无限涌出的液体，是否有填平欲望的一天？\n输入5000任意一种流体后，将<color=\"#FD965ECC\">无限</color>输出/输入该流体",
+        "ENUS": "The water jar, salvaged from the deep and unquenchable desires lurking in people's subconscious, will its endless flow of liquid ever fill up those desires one day?\n After inputting 5000 units of any fluid, input/output the fluid <color=\"#FD965ECC\">infinitely</color>"
     },
     {
         "Name": "光速修改",
