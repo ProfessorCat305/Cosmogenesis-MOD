@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Reflection.Emit;
 using System.Text.RegularExpressions;
 using GalacticScale;
@@ -389,15 +390,16 @@ namespace ProjectOrbitalRing.Patches.UI
         [HarmonyPatch(typeof(UIAssemblerWindow), "_OnUpdate")]
         public static void UIAssemblerWindow_OnUpdate_Postfix(ref UIAssemblerWindow __instance)
         {
-            bool activeSelf = UIAssemblerWindowPatch._obj.activeSelf;
-            if (activeSelf) {
-                bool flag = __instance.assemblerId == 0 || __instance.factorySystem == null;
-                if (!flag) {
-                    ref AssemblerComponent ptr = ref __instance.factorySystem.assemblerPool[__instance.assemblerId];
-                    bool flag2 = ptr.id == __instance.assemblerId;
-                    if (flag2) {
-                        AssemblerModuleData AssemblerModuleData = AssemblerModulePatches.GetAssemblerModuleData(__instance.factorySystem, __instance.assemblerId);
-                        ref AssemblerComponent Assembler = ref __instance.factorySystem.assemblerPool[__instance.assemblerId];
+            bool flag = __instance.assemblerId == 0 || __instance.factorySystem == null;
+            if (!flag) {
+                ref AssemblerComponent Assembler = ref __instance.factorySystem.assemblerPool[__instance.assemblerId];
+                FactorySystem factorySystem = __instance.factorySystem;
+                bool flag2 = Assembler.id == __instance.assemblerId;
+                if (flag2) {
+                    bool activeSelf = UIAssemblerWindowPatch._obj.activeSelf;
+                    if (activeSelf) {
+                        AssemblerModuleData AssemblerModuleData = AssemblerModulePatches.GetAssemblerModuleData(factorySystem, __instance.assemblerId);
+                        //ref AssemblerComponent Assembler = ref factorySystem.assemblerPool[__instance.assemblerId];
                         int moduleId = AssemblerModulePatches.GetModuleId(Assembler.recipeId);
                         bool flag3 = (moduleId == 7616) && (AssemblerModuleData.ItemCount < AssemblerModuleData.NeedCount);
                         if (flag3) {
@@ -409,6 +411,22 @@ namespace ProjectOrbitalRing.Patches.UI
                         UIAssemblerWindowPatch._icon.enabled = (AssemblerModuleData.ItemCount > 0);
                         UIAssemblerWindowPatch._text.text = (moduleId == 7616 || AssemblerModuleData.ItemCount > 0) ? itemProto.name : "伺服器".TranslateFromJson();
                         UIAssemblerWindowPatch._uiButton.tips.itemId = (AssemblerModuleData.ItemCount > 0) ? AssemblerModuleData.ItemId : 0;
+                    }
+                    if (__instance.factory.entityPool[Assembler.entityId].protoId == ProtoID.I星环对撞机) {
+                        Vector3 pos = __instance.factory.entityPool[Assembler.entityId].pos;
+                        int ringIndex = PosTool.isBuildingPosYCorrect(pos, (factorySystem.planet.radius == 100f));
+                        var planetOrbitalRingData = OrbitalStationManager.Instance.GetPlanetOrbitalRingData(factorySystem.planet.id);
+                        if (planetOrbitalRingData != null) {
+                            //LogError($" {ringIndex} ring not complete IsOneFull {planetOrbitalRingData.Rings[ringIndex].IsOneFull()} isLowInsideRingComplete {planetOrbitalRingData.Rings[ringIndex].isLowInsideRingComplete}");
+                            if (!planetOrbitalRingData.Rings[ringIndex].IsOneFull()) {
+                                // 星环不完整，星环粒子对撞机不运行
+                                __instance.stateText.text = "缺少星环".TranslateFromJson();
+                                __instance.stateText.color = __instance.workStoppedColor;
+                            } else if (!planetOrbitalRingData.Rings[ringIndex].isLowInsideRingComplete) {
+                                __instance.stateText.text = "缺少粒子加速轨道环".TranslateFromJson();
+                                __instance.stateText.color = __instance.workStoppedColor;
+                            }
+                        }
                     }
                 }
             }

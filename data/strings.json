@@ -350,6 +350,16 @@
         "ENUS": "You have entered the final stage of true clearance, where the silo rocket is replaced with <color=\"#FD965ECC\">the Mathematical Rate Engine - Vibration Excitation Focus - Launch Vehicle</color>. The projectile of the electromagnetic launcher is changed from antimaterial fuel rods to <color=\"#FD965ECC\">gravitational drill bits</color>. \n\nThe power calculation for the third phase of the mathematical rate engine is: the Hume value reached in the second stage when entering the third stage multiplied by (the newly added Hume value in the third phase divided by 15000) equals the final displayed Hume value. \n\n<color=\"#FD965ECC\">When the mathematical rate engine reaches a Hume value of 20k in the third phase, it is considered to have achieved True Ending</color>"
     },
     {
+        "Name": "真通关三阶前粘贴蓝图标题",
+        "ZHCN": "10层警告",
+        "ENUS": "10 Layers Warning"
+    },
+    {
+        "Name": "真通关三阶前粘贴蓝图描述",
+        "ZHCN": "警告，您正在粘贴或创建第10层，极不建议这么做。\n进入三阶后已存在的层将无法吸附游离弹射物，因此在三阶前将10层全部创建的话，在三阶时<color=\"#FD965ECC\">所有节点将无法吸附游离弹射物</color>",
+        "ENUS": "Warning, You are pasting or creating the 10th layer, which is highly discouraged. \nAfter entering the True Ending third phase, existing layers will not be able to adsorb free projectiles. Therefore, if all 10 layers are created before the third phase, <color=\"#FD965ECC\">all nodes will not be able to adsorb free projectiles</color> in the third phase"
+    },
+    {
         "Name": "离星燃料消耗描述",
         "ZHCN": "为了突破行星的重力井，离开星球需要额外消耗背包中的化学燃料棒，消耗的数量会随着背包和手上的物品数量增加而增长，具体为每格物品数量除以物品最大堆叠的总和乘以10。在卫星上离开星球消耗的化学燃料棒减免90%",
         "ENUS": "In order to break through the planet's gravity well, leaving the planet requires additional consumption of chemical fuel rods in the backpack. The amount consumed will increase as the number of items in the backpack and hands increases, Specifically, it is calculated by dividing the number of items in each slot by the total maximum stack size of the items, and then multiplying the result by 10. 90% reduction in chemical fuel rods consumed when leaving the planet on the satellite"
@@ -403,6 +413,21 @@
         "Name": "提升攻击无人机20点护甲",
         "ZHCN": "提升攻击无人机20点护甲",
         "ENUS": "Increase the armor of attack drones by 20 points"
+    },
+    {
+        "Name": "缺少过滤器",
+        "ZHCN": "缺少超高效过滤器",
+        "ENUS": "Lack of Ultra Low Penetration Air Filter"
+    },
+    {
+        "Name": "缺少星环",
+        "ZHCN": "缺少轨道连接组件环",
+        "ENUS": "Lack of Orbital Connection Components ring"
+    },
+    {
+        "Name": "缺少粒子加速轨道环",
+        "ZHCN": "缺少粒子加速轨道环",
+        "ENUS": "Lack of Particle Acceleration Orbit ring"
     },
     {
         "Name": "飞行舱说明书",
@@ -507,7 +532,7 @@
     {
         "Name": "超高效过滤器",
         "ZHCN": "超高效过滤器",
-        "ENUS": "Ultra Low Penetration Air Filter"
+        "ENUS": "Ultra Low Penetration Air Filter(ULPA)"
     },
     {
         "Name": "I超高效过滤器",
@@ -4635,8 +4660,8 @@
     },
     {
         "Name": "I星环对撞机总控站",
-        "ZHCN": "星环对撞机在轨总控设施，建造时会将各节加速轨道加装到星环上的各轨道设施上。星环对撞机总控站负责控制整个星环的加速轨道，以及目标粒子的输入输出。\n因为以整个星环为加速轨道，因此<color=\"#FD965ECC\">一个星环只能建造一个星环对撞机总控站。</color>\n此建筑<color=\"#FD965ECC\">50倍</color>速度生产（在卫星为<color=\"#FD965ECC\">25倍</color>）\n且需要<color=\"#FD965ECC\">星环完整</color>才能运作\n<color=\"#FD965ECC\">需要由底下的太空电梯提供物品的输入输出。</color>\n在星环共享空间中的默认储存上限为<color=\"#FD965ECC\">50</color>",
-        "ENUS": "The in orbit control facility of the Star Ring Collider will be constructed by installing each section of the acceleration orbit onto the various orbital facilities on the Orbital Ring. The main control station of the Star Ring Collider is responsible for controlling the acceleration orbit of the entire Orbital Ring and the input and output of target particles.\n Because the entire ring is used as the acceleration orbit, only <color=\"#FD965ECC\">one ring collider control station can be built for each ring.</color>\nThis building is <color=\"#FD965ECC\">50 times</color> speed for production (<color=\"#FD965ECC\">25 times</color> on satellite)\n And it requires the <color=\"#FD965ECC\">complete orbital ring</color> to operate \n<color=\"#FD965ECC\">The input and output of items need to be provided by the space elevator below</color>\nThe default storage capacity limit in the Star Ring shared space is <color=\"#FD965ECC\">50</color>"
+        "ZHCN": "星环对撞机在轨总控设施，建造时会将各节加速轨道加装到星环上的各轨道设施上。星环对撞机总控站负责控制整个星环的加速轨道，以及目标粒子的输入输出。\n因为以整个星环为加速轨道，因此<color=\"#FD965ECC\">一个星环只能建造一个星环对撞机总控站。</color>\n此建筑<color=\"#FD965ECC\">50倍</color>速度生产（在卫星为<color=\"#FD965ECC\">25倍</color>）\n需要星环中<color=\"#FD965ECC\">轨道连接组件</color>和<color=\"#FD965ECC\">粒子加速轨道</color>都有完整一圈才能运作\n<color=\"#FD965ECC\">需要由底下的太空电梯提供物品的输入输出。</color>\n在星环共享空间中的默认储存上限为<color=\"#FD965ECC\">50</color>",
+        "ENUS": "The in orbit control facility of the Star Ring Collider will be constructed by installing each section of the acceleration orbit onto the various orbital facilities on the Orbital Ring. The main control station of the Star Ring Collider is responsible for controlling the acceleration orbit of the entire Orbital Ring and the input and output of target particles.\n Because the entire ring is used as the acceleration orbit, only <color=\"#FD965ECC\">one ring collider control station can be built for each ring.</color>\nThis building is <color=\"#FD965ECC\">50 times</color> speed for production (<color=\"#FD965ECC\">25 times</color> on satellite)\n The <color=\"#FD965ECC\">Orbital Connection Components</color> and <color=\"#FD965ECC\">Particle Acceleration Orbit</color> both need to have a complete circle in the orbital ring to operate \n<color=\"#FD965ECC\">The input and output of items need to be provided by the space elevator below</color>\nThe default storage capacity limit in the Star Ring shared space is <color=\"#FD965ECC\">50</color>"
     },
     {
         "Name": "粒子加速轨道",

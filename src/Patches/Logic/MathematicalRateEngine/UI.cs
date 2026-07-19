@@ -248,5 +248,71 @@ namespace ProjectOrbitalRing.Patches.Logic.MathematicalRateEngine
 
             return ((midValue / 10) / 100.0) + unitStr;
         }
+
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(UIDELayerPanel), nameof(UIDELayerPanel.OnLayerAddClick))]
+        public static void UIDELayerPanel_OnLayerAddClick_Patch(UIDELayerPanel __instance)
+        {
+            if (__instance.editor.selection.viewStar.type == EStarType.BlackHole) {
+                if (ProjectOrbitalRing.MoreMegaStructureCompatibility) {
+                    try {
+                        // 使用反射动态获取类型
+                        var mmType = Type.GetType("MoreMegaStructure.MoreMegaStructure, MoreMegaStructure");
+                        var starMegaType = mmType?.GetField("StarMegaStructureType")?.GetValue(null) as int[];
+
+                        if (starMegaType?[curStar.index] != 0) {
+                            return; // 如果是更多巨构mod的其他巨构，则跳过数学率引擎的处理
+                        }
+                    } catch (Exception ex) {
+                    }
+                }
+                if (!GameMain.history.TechUnlocked(1960)) {
+                    DysonSphereLayer[] layersIdBased = __instance.editor.selection.viewDysonSphere.layersIdBased;
+                    for (int i = 1; i <= __instance.layerButtons.Length - 1; i++) {
+                        if (layersIdBased[i] == null || layersIdBased[i].id == 0) {
+                            return;
+                        }
+                    }
+                    // 数学率引擎因三阶时三阶前的层将无法再吸附游离帆，因此三阶前创建10层会弹窗警告
+                    UIMessageBox.Show("真通关三阶前粘贴蓝图标题".Translate(), "真通关三阶前粘贴蓝图描述".Translate(), "确定".Translate(), 3, null);
+                }
+
+            }
+        }
+
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(DysonBlueprintData), nameof(DysonBlueprintData.FromBase64String))]
+        public static void UIDELayerPanel_UpdateIndexButtons_Patch(DysonBlueprintData __instance, DysonSphere sphere, DysonBlueprintDataIOError __result)
+        {
+            if (__result != DysonBlueprintDataIOError.OK) {
+                return;
+            }
+            if (sphere.starData.type == EStarType.BlackHole) {
+                if (ProjectOrbitalRing.MoreMegaStructureCompatibility) {
+                    try {
+                        // 使用反射动态获取类型
+                        var mmType = Type.GetType("MoreMegaStructure.MoreMegaStructure, MoreMegaStructure");
+                        var starMegaType = mmType?.GetField("StarMegaStructureType")?.GetValue(null) as int[];
+
+                        if (starMegaType?[curStar.index] != 0) {
+                            return; // 如果是更多巨构mod的其他巨构，则跳过数学率引擎的处理
+                        }
+                    } catch (Exception ex) {
+                    }
+                }
+                if (!GameMain.history.TechUnlocked(1960)) {
+                    DysonSphereLayer[] layersIdBased = sphere.layersIdBased;
+                    // 固定最多10层应该可以直接写死的吧？
+                    for (int i = 1; i <= 10; i++) {
+                        if (layersIdBased[i] == null || layersIdBased[i].id == 0) {
+                            return;
+                        }
+                    }
+                    // 数学率引擎因三阶时三阶前的层将无法再吸附游离帆，因此三阶前粘贴10层蓝图会弹窗警告
+                    UIMessageBox.Show("真通关三阶前粘贴蓝图标题".Translate(), "真通关三阶前粘贴蓝图描述".Translate(), "确定".Translate(), 3, null);
+                }
+
+            }
+        }
     }
 }

@@ -277,6 +277,9 @@ namespace ProjectOrbitalRing.Utils
             item.prefabDesc.turretAmmoType = EAmmoType.LocalPlasma;
             //LDB.items.Select(ProtoID.I水).recipes = new List<RecipeProto> { LDB.recipes.Select(ProtoID.R海水淡化), };
             //LDB.items.Select(ProtoID.I氢).isRaw = true;
+
+            item = LDB.items.Select(3009);
+            item.prefabDesc.constructionRange = 200f;
         }
 
 
