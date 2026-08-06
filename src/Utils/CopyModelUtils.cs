@@ -5,8 +5,7 @@ using HarmonyLib;
 using System.Reflection.Emit;
 using UnityEngine;
 using xiaoye97;
-using static System.Collections.Specialized.BitVector32;
-using static VertaRecorder;
+using static ProjectOrbitalRing.ProjectOrbitalRing;
 
 // ReSharper disable CommentTypo
 // ReSharper disable LoopCanBePartlyConvertedToQuery
@@ -19,19 +18,19 @@ namespace ProjectOrbitalRing.Utils
     {
         internal static void AddCopiedModelProto()
         {
-            CopyModelProto(50, ProtoID.M轨道熔炼站, Color.HSVToRGB(0.0710f, 0.7412f, 0.8941f));
+            //CopyModelProto(50, ProtoID.M轨道熔炼站, Color.HSVToRGB(0.0710f, 0.7412f, 0.8941f));
             CopyModelProto(117, ProtoID.M超空间中继器, null);
-            CopyModelProto(50, ProtoID.M太空船坞, Color.HSVToRGB(0.5571f, 0.3188f, 0.8980f));
-            CopyModelProto(50, ProtoID.M轨道观测站, Color.HSVToRGB(0.2275f, 0.3804f, 0.6431f));
-            CopyModelProto(49, ProtoID.M太空电梯, Color.HSVToRGB(0.1404f, 0.8294f, 0.9882f));
-            CopyModelProto(50, ProtoID.M深空物流港, new Color32(60, 179, 113, 255));
+            //CopyModelProto(50, ProtoID.M太空船坞, Color.HSVToRGB(0.5571f, 0.3188f, 0.8980f));
+            //CopyModelProto(50, ProtoID.M轨道观测站, Color.HSVToRGB(0.2275f, 0.3804f, 0.6431f));
+            //CopyModelProto(49, ProtoID.M太空电梯, Color.HSVToRGB(0.1404f, 0.8294f, 0.9882f));
+            //CopyModelProto(50, ProtoID.M深空物流港, new Color32(60, 179, 113, 255));
             CopyModelProto(56, ProtoID.M轨道反物质堆核心);
             CopyModelProto(56, ProtoID.M超空间中继器核心);
             CopyModelProto(68, ProtoID.M勘察卫星, Color.HSVToRGB(0.0833f, 0.8f, 1.0f));
             CopyModelProto(46, ProtoID.M同位素温差发电机, Color.HSVToRGB(0.4174f, 0.742f, 0.9686f));
-            CopyModelProto(50, ProtoID.M轨道水培舱, new Color(0.3216F, 0.8157F, 0.09020F));
-            CopyModelProto(50, ProtoID.M星环对撞机, new Color(0.3059F, 0.2196F, 0.4941F));
-            CopyModelProto(50, ProtoID.M轨道反物质堆基座);
+            //CopyModelProto(50, ProtoID.M轨道水培舱, new Color(0.3216F, 0.8157F, 0.09020F));
+            //CopyModelProto(50, ProtoID.M星环对撞机, new Color(0.3059F, 0.2196F, 0.4941F));
+            //CopyModelProto(50, ProtoID.M轨道反物质堆基座);
             CopyModelProto(432, ProtoID.M启示录聚变弹, new Color(0.3059F, 0.2196F, 0.4941F));
             CopyModelProto(375, ProtoID.M聚爆加农炮MK2, new Color(0.2275f, 0.3804f, 0.6431f));
             CopyModelProto(373, ProtoID.M高频激光塔MK2, new Color(0.5765f, 0.4392f, 0.8588f));
@@ -39,7 +38,7 @@ namespace ProjectOrbitalRing.Utils
             CopyModelProto(488, ProtoID.M反物质炮弹);
             CopyModelProto(46, ProtoID.M蓄电器, Color.HSVToRGB(0.0833f, 0.8f, 1.0f));
             CopyModelProto(48, ProtoID.M深空货舰);
-            CopyModelProto(50, ProtoID.M天枢座, new Color(0.7373f, 0.2118f, 0.8510f));
+            //CopyModelProto(50, ProtoID.M天枢座, new Color(0.7373f, 0.2118f, 0.8510f));
             CopyModelProto(36, ProtoID.M星环电网组件, new Color(0.7373f, 0.2118f, 0.8510f)); 
             CopyModelProto(72, ProtoID.M轨道弹射器, new Color(0.1404f, 0.8294f, 0.9882f)); 
             CopyModelProto(49, ProtoID.M轨道空投站, Color.HSVToRGB(0.0710f, 0.7412f, 0.8941f));
@@ -59,11 +58,11 @@ namespace ProjectOrbitalRing.Utils
             CopyModelProto(403, ProtoID.M欺骗型广播塔, new Color(0f, 0f, 0f));
             CopyModelProto(121, ProtoID.M无尽水罐, new Color(0f, 0f, 0f));
 
-            //AddHyperRelayReactor();
+            AddNewBuildingModel();
             ChangeAccumulatorColor();
         }
 
-        
+
         private static void ChangeAccumulatorColor()
         {
             ModelProto oriModel = LDB.models.Select(46);
@@ -84,6 +83,67 @@ namespace ProjectOrbitalRing.Utils
                     material.SetColor("_Color", new Color(0.3529f, 0.8235f, 1.0f));
                 }
             }
+        }
+
+        private static void AddNewBuildingModel()
+        {
+            string prefabPath;
+            prefabPath = "Assets/orbitalrings-models/entities/prefabs/space-elevator";
+            RegisterNewBuildingModel(ProtoID.M物流立交, ProtoID.M太空电梯, prefabPath, Color.HSVToRGB(0.1404f, 0.8294f, 0.9882f));
+
+            prefabPath = "Assets/orbitalrings-models/entities/prefabs/space-dock";
+            RegisterNewBuildingModel(ProtoID.M太空物流港, ProtoID.M太空船坞, prefabPath, Color.HSVToRGB(0.5571f, 0.3188f, 0.8980f));
+
+            prefabPath = "Assets/orbitalrings-models/entities/prefabs/orbital-antimatter-reactor";
+            RegisterNewBuildingModel(ProtoID.M太空物流港, ProtoID.M轨道反物质堆基座, prefabPath, new Color(0f, 0.28f, 1f));
+
+            prefabPath = "Assets/orbitalrings-models/entities/prefabs/orbital-observation-station";
+            RegisterNewBuildingModel(ProtoID.M太空物流港, ProtoID.M轨道观测站, prefabPath, Color.HSVToRGB(0.2275f, 0.3804f, 0.6431f));
+
+            prefabPath = "Assets/orbitalrings-models/entities/prefabs/orbital-smelting-station";
+            RegisterNewBuildingModel(ProtoID.M太空物流港, ProtoID.M轨道熔炼站, prefabPath, Color.HSVToRGB(0.0710f, 0.7412f, 0.8941f));
+
+            prefabPath = "Assets/orbitalrings-models/entities/prefabs/orbital-hydroponic-cabin";
+            RegisterNewBuildingModel(ProtoID.M太空物流港, ProtoID.M轨道水培舱, prefabPath, new Color(0.3216F, 0.8157F, 0.09020F));
+
+            prefabPath = "Assets/orbitalrings-models/entities/prefabs/deep-space-logistics-port";
+            RegisterNewBuildingModel(ProtoID.M太空物流港, ProtoID.M深空物流港, prefabPath, new Color32(60, 179, 113, 255));
+
+            prefabPath = "Assets/orbitalrings-models/entities/prefabs/tianzhu-seat";
+            RegisterNewBuildingModel(ProtoID.M太空物流港, ProtoID.M天枢座, prefabPath, new Color(0.7373f, 0.2118f, 0.8510f));
+
+            prefabPath = "Assets/orbitalrings-models/entities/prefabs/orbitalring-particle-accelerator-collider";
+            RegisterNewBuildingModel(ProtoID.M太空物流港, ProtoID.M星环对撞机, prefabPath, new Color(0.3059F, 0.2196F, 0.4941F));
+
+            prefabPath = "Assets/orbitalrings-models/entities/prefabs/space-logistics-port";
+            RegisterNewBuildingModel(ProtoID.M太空物流港, ProtoID.M太空物流港, prefabPath, new Color(0.8275F, 0.8275F, 0.8275F));
+        }
+
+        private static void RegisterNewBuildingModel(int oriModelId, int registerModelId, string prefabPath, Color color)
+        {
+            ModelProto oriModel = LDB.models.Select(oriModelId);
+            PrefabDesc desc = oriModel.prefabDesc;
+            
+            var newMats = new List<Material>();
+
+            foreach (Material[] lodMats in desc.lodMaterials) {
+                if (lodMats == null) continue;
+
+                foreach (Material mat in lodMats) {
+                    if (mat == null) continue;
+
+                    var newMaterial = new Material(mat);
+                    newMaterial.SetColor("_Color", color);
+                    newMats.Add(newMaterial);
+                }
+            }
+
+            ModelProto registerModel = ProtoRegistry.RegisterModel(registerModelId, prefabPath, newMats.ToArray());
+
+            registerModel.HpMax = oriModel.HpMax;
+            registerModel.RuinId = oriModel.RuinId;
+            registerModel.RuinType = ERuinType.Normal;
+            registerModel.RuinCount = 1;
         }
 
         //private static void AddAtmosphericCollectStation()
@@ -203,9 +263,9 @@ namespace ProjectOrbitalRing.Utils
 
         internal static void ModelPostFix()
         {
-            ModelProto modelProto = LDB.models.Select(ProtoID.M深空物流港);
-            modelProto._ruinPath = "Entities/Prefabs/Ruins/interstellar-logistic-station-ruins";
-            modelProto._wreckagePath = "Entities/Prefabs/Wreckages/interstellar-logistic-station-wreckages";
+            //ModelProto modelProto = LDB.models.Select(ProtoID.M深空物流港);
+            //modelProto._ruinPath = "Entities/Prefabs/Ruins/interstellar-logistic-station-ruins";
+            //modelProto._wreckagePath = "Entities/Prefabs/Wreckages/interstellar-logistic-station-wreckages";
 
             PrefabDesc prefabDesc = LDB.models.Select(ProtoID.M同位素温差发电机).prefabDesc;
             ref Material[] prefabDescLODMaterial = ref prefabDesc.lodMaterials[0];
@@ -278,6 +338,7 @@ namespace ProjectOrbitalRing.Utils
             //LDB.items.Select(ProtoID.I水).recipes = new List<RecipeProto> { LDB.recipes.Select(ProtoID.R海水淡化), };
             //LDB.items.Select(ProtoID.I氢).isRaw = true;
 
+            // 战场分析基站建造范围从60改为200
             item = LDB.items.Select(3009);
             item.prefabDesc.constructionRange = 200f;
         }

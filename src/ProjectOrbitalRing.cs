@@ -65,7 +65,7 @@ namespace ProjectOrbitalRing
     {
         public const string MODGUID = "org.ProfessorCat305.OrbitalRing";
         public const string MODNAME = "OrbitalRing";
-        public const string VERSION = "1.0.12";
+        public const string VERSION = "1.0.13";
         public const string DEBUGVERSION = "";
 
 
@@ -138,6 +138,10 @@ namespace ProjectOrbitalRing
             var resources_lab = new ResourceData("org.ProfessorCat305.OrbitalRing", "genesis-models-lab", ModPath);
             resources_lab.LoadAssetBundle("genesis-models-lab");
             ProtoRegistry.AddResource(resources_lab);
+
+            var orbital_building_models = new ResourceData("org.ProfessorCat305.OrbitalRing", "orbitalrings-models", ModPath);
+            orbital_building_models.LoadAssetBundle("orbitalrings-models");
+            ProtoRegistry.AddResource(orbital_building_models);
 
             Shader stoneVeinShader =
                 resources_models.bundle.LoadAsset<Shader>("Assets/genesis-models/shaders/PBR Standard Vein Stone COLOR.shader");
@@ -305,8 +309,7 @@ namespace ProjectOrbitalRing
             LDB.themes.OnAfterDeserialize();
             LDB.veins.OnAfterDeserialize();
 
-            if (GameMain.instance != null)
-            {
+            if (GameMain.instance != null) {
                 GameMain.instance.CreateGPUInstancing();
                 GameMain.instance.CreateBPGPUInstancing();
                 // GameMain.instance.CreateMultithreadSystem();
@@ -345,7 +348,7 @@ namespace ProjectOrbitalRing
             RecipeProto.InitFractionatorNeeds();
             RaycastLogic.LoadStatic();
 
-            
+
 
             ItemProto.stationCollectorId = ProtoID.I轨道采集器;
 

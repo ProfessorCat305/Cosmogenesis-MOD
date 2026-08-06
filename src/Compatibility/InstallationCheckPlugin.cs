@@ -58,6 +58,7 @@ namespace ProjectOrbitalRing.Compatibility
 
         public static void AwakeCompatibilityPatchers()
         {
+            Auxilaryfunction.Awake();
             MoreMegaStructure.Awake();
             PlanetVeinUtilization.Awake();
             BlueprintTweaks.Awake();

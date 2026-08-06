@@ -375,7 +375,7 @@
     {
         "ModelID": 806,
         //"workEnergyPerTick": 50000,
-        //"stationMaxEnergyAcc": 12000000000,
+        "stationMaxEnergyAcc": 12000000000,
         "stationMaxItemCount": 15000,
         "stationMaxDroneCount": 0
         //"stationMaxItemKinds": 6

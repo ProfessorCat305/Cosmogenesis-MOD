@@ -11,6 +11,9 @@ namespace ProjectOrbitalRing.Patches.Logic.OrbitalRing
 {
     internal class OrbitalBuild
     {
+        private static readonly int Orbit_Building_Lifting_Height = 40;
+        private static readonly int Orbit_Building_Core_Lifting_Height = 72;
+
         private static readonly HashSet<string> LoggedThemeCheckFailures = new HashSet<string>();
 
         private static void LogThemeCheckFailure(PlanetData planet, int previewItem, int resolvedTheme, string reason)
@@ -152,13 +155,14 @@ namespace ProjectOrbitalRing.Patches.Logic.OrbitalRing
                 if (IsBuildingItemIdisOrbitalStation(preview.item.ID, false) || IsBuildingItemIdisOrbitalCore(preview.item.ID)) {
                     // 计算原向量长度
                     float originalMagnitude = preview.lpos.magnitude;
-                    if (originalMagnitude == 0 || originalMagnitude - __instance.planet.realRadius > 40) {
+                    if (originalMagnitude == 0 || originalMagnitude - __instance.planet.realRadius > Orbit_Building_Lifting_Height) {
                         continue; // 避免除以零
                     }
                     // 获取单位向量（原方向）
                     Vector3 normalized = preview.lpos.normalized;
                     // 计算新长度并返回结果
-                    preview.lpos = normalized * (originalMagnitude + (IsBuildingItemIdisOrbitalCore(preview.item.ID) ? 72 : 40));
+                    preview.lpos = normalized * (originalMagnitude +
+                        (IsBuildingItemIdisOrbitalCore(preview.item.ID) ? Orbit_Building_Core_Lifting_Height : Orbit_Building_Lifting_Height));
                 }
 
                 if (preview.item.ID == ProtoID.I超空间中继器核心) { // 超空间中继器核心
@@ -168,7 +172,7 @@ namespace ProjectOrbitalRing.Patches.Logic.OrbitalRing
                     }
                     // 获取单位向量（原方向）
                     Vector3 normalized = preview.lpos.normalized;
-                    // 计算新长度并返回结果
+                    // 计算新长度并返回结果，超空间中继器核心抬升33
                     preview.lpos = normalized * (originalMagnitude + 33);
                 }
             }

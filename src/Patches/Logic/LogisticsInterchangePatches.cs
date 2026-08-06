@@ -106,24 +106,23 @@ namespace ProjectOrbitalRing.Patches.Logic
                 new Pose(megaPumper.portPoses[10].position, megaPumper.portPoses[10].rotation),
                 new Pose(megaPumper.portPoses[11].position, megaPumper.portPoses[11].rotation)
             };
-            for (int i = 12; i < newPortPoses.Length; i++)
-            {
+            for (int i = 12; i < newPortPoses.Length; i++) {
                 newPortPoses[i].position.y = 17 * 1.3333333f;
             }
-//[Error: OrbitalRing] portPoses x 1.256 y - 0.01 z 2.7
-//[Error: OrbitalRing] portPoses x 0 y - 0.01 z 2.7
-//[Error: OrbitalRing] portPoses x -1.256 y - 0.01 z 2.7
-//[Error: OrbitalRing] portPoses x -2.7 y - 0.01 z 1.256
-//[Error: OrbitalRing] portPoses x -2.7 y - 0.01 z 0
-//[Error: OrbitalRing] portPoses x -2.7 y - 0.01 z - 1.256
-//[Error: OrbitalRing] portPoses x -1.256 y - 0.01 z - 2.7
-//[Error: OrbitalRing] portPoses x 0 y - 0.01 z - 2.7
-//[Error: OrbitalRing] portPoses x 1.256 y - 0.01 z - 2.7
-//[Error: OrbitalRing] portPoses x 2.7 y - 0.01 z - 1.256
-//[Error: OrbitalRing] portPoses x 2.7 y - 0.01 z 0
-//[Error: OrbitalRing] portPoses x 2.7 y - 0.01 z 1.256
-
             megaPumper.portPoses = newPortPoses;
+            //[Error: OrbitalRing] portPoses x 1.256 y - 0.01 z 2.7
+            //[Error: OrbitalRing] portPoses x 0 y - 0.01 z 2.7
+            //[Error: OrbitalRing] portPoses x -1.256 y - 0.01 z 2.7
+            //[Error: OrbitalRing] portPoses x -2.7 y - 0.01 z 1.256
+            //[Error: OrbitalRing] portPoses x -2.7 y - 0.01 z 0
+            //[Error: OrbitalRing] portPoses x -2.7 y - 0.01 z - 1.256
+            //[Error: OrbitalRing] portPoses x -1.256 y - 0.01 z - 2.7
+            //[Error: OrbitalRing] portPoses x 0 y - 0.01 z - 2.7
+            //[Error: OrbitalRing] portPoses x 1.256 y - 0.01 z - 2.7
+            //[Error: OrbitalRing] portPoses x 2.7 y - 0.01 z - 1.256
+            //[Error: OrbitalRing] portPoses x 2.7 y - 0.01 z 0
+            //[Error: OrbitalRing] portPoses x 2.7 y - 0.01 z 1.256
+
 
             megaPumper = LDB.models.Select(ProtoID.M轨道空投站).prefabDesc;
             newPortPoses = new Pose[]{ new Pose(megaPumper.portPoses[0].position, megaPumper.portPoses[0].rotation),
@@ -157,16 +156,16 @@ namespace ProjectOrbitalRing.Patches.Logic
             }
             megaPumper.portPoses = newPortPoses;
 
-            DelStationPose(ProtoID.M轨道熔炼站);
-            DelStationPose(ProtoID.M太空船坞);
-            DelStationPose(ProtoID.M轨道观测站);
-            DelStationPose(ProtoID.M深空物流港);
+            //DelStationPose(ProtoID.M轨道熔炼站);
+            //DelStationPose(ProtoID.M太空船坞);
+            //DelStationPose(ProtoID.M轨道观测站);
+            //DelStationPose(ProtoID.M深空物流港);
             DelSlotPose(ProtoID.M轨道反物质堆核心);
-            DelStationPose(ProtoID.M星环对撞机);
-            DelStationPose(ProtoID.M轨道反物质堆基座);
-            DelStationPose(ProtoID.M天枢座);
-            DelStationPose(ProtoID.M超空间中继器核心);
-            DelStationPose(ProtoID.M轨道水培舱);
+            //DelStationPose(ProtoID.M星环对撞机);
+            //DelStationPose(ProtoID.M轨道反物质堆基座);
+            //DelStationPose(ProtoID.M天枢座);
+            DelSlotPose(ProtoID.M超空间中继器核心);
+            //DelStationPose(ProtoID.M轨道水培舱);
             DelSlotPose(ProtoID.M轨道弹射器);
 
             // 化工厂和量子化工厂新增前方两个爪子口
@@ -229,7 +228,52 @@ namespace ProjectOrbitalRing.Patches.Logic
 
         }
 
-        
+
+        [HarmonyPatch(typeof(UISlotPicker), nameof(UISlotPicker._OnUpdate))]
+        [HarmonyPrefix]
+        public static bool UISlotPicker_OnUpdate_Patch(UISlotPicker __instance)
+        {
+            if (__instance.position.sqrMagnitude <= 1f) {
+                __instance._Close();
+                return false;
+            }
+            Vector3 vector = __instance.cam.WorldToScreenPoint(__instance.position);
+            bool flag = true;
+            if (vector.z < 0.1f) {
+                flag = false;
+            }
+            if (vector.x < -10f || vector.y < -10f || vector.x > (float)(Screen.width + 10) || vector.y > (float)(Screen.height + 10)) {
+                flag = false;
+            }
+            if (flag) {
+                Rect rect = (__instance.transform.parent as RectTransform).rect;
+                vector.x *= rect.width / (float)Screen.width;
+                vector.y *= rect.height / (float)Screen.height;
+                // 离星中心距离的平方，下层41000+，17层实测在51000+
+                if (__instance.position.sqrMagnitude > 45000) {
+                    // 下调分拣UI位置，使其更接近能被点击的地方
+                    vector.y -= 50f;
+                }
+                __instance.rectTrans.anchoredPosition = new Vector2(Mathf.Round(vector.x), Mathf.Round(vector.y));
+                __instance.bgTrans.sizeDelta = Lerp.Tween(__instance.bgTrans.sizeDelta, __instance.GetBGSize(__instance.filterItems.Count), 20f);
+                __instance.itemGroup.SetActive(__instance.bgTrans.sizeDelta.x > 150f && __instance.expand);
+                if (__instance.selectedIndex == 0) {
+                    __instance.selectTrans.anchoredPosition = __instance.GetItemPos(__instance.selectedIndex, __instance.filterItems.Count);
+                    __instance.selectImage.color = __instance.noneFilterColor;
+                } else {
+                    __instance.selectTrans.anchoredPosition = __instance.GetItemPos(__instance.selectedIndex, __instance.filterItems.Count);
+                    __instance.selectImage.color = __instance.selectedFilterColor;
+                }
+                if (!VFInput.readyToBuild) {
+                    __instance._Close();
+                }
+                return false;
+            }
+            __instance._Close();
+            return false;
+        }
+
+
         [HarmonyPatch(typeof(BuildingGizmo), nameof(BuildingGizmo.SetGizmoDesc))]
         [HarmonyPrefix]
         public static bool BuildingGizmo_SetGizmoDesc_Prefix(BuildingGizmo __instance, ref BuildGizmoDesc _desc)

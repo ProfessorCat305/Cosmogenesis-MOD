@@ -115,6 +115,7 @@
     <Compile Include="src\Compatibility\MoreMegaStructure.cs" />
     <Compile Include="src\Compatibility\PlanetVeinUtilization.cs" />
     <Compile Include="src\Compatibility\PlanetwideMining.cs" />
+    <Compile Include="src\Compatibility\Auxilaryfunction.cs" />
     <Compile Include="src\Compatibility\WeaponPlus.cs" />
     <Compile Include="src\Patches\Logic\AbnormalityLogicPatches.cs" />
     <Compile Include="src\Patches\Logic\AddVein\AddEffectEmitterProto.cs" />
@@ -302,6 +303,7 @@
     <Copy SourceFiles="$(TargetPath)" DestinationFiles="$(BepinExPath)plugins\$(DebugModDir)\$(TargetName).dll" />
     <Copy SourceFiles="$(SolutionDir)assets\genesis-models" DestinationFiles="$(BepinExPath)plugins\$(DebugModDir)\genesis-models" />
     <Copy SourceFiles="$(SolutionDir)assets\genesis-models-lab" DestinationFiles="$(BepinExPath)plugins\$(DebugModDir)\genesis-models-lab" />
+    <Copy SourceFiles="$(SolutionDir)assets\orbitalrings-models" DestinationFiles="$(BepinExPath)plugins\$(DebugModDir)\orbitalrings-models" />
     <Copy SourceFiles="$(SolutionDir)lib\Newtonsoft.Json.dll" DestinationFiles="$(BepinExPath)plugins\$(DebugModDir)\Newtonsoft.Json.dll" />
     <Copy SourceFiles="$(TargetPath)" DestinationFiles="$(ReleasePath)plugins\$(TargetName).dll" />
     <Copy SourceFiles="README.md" DestinationFiles="$(ReleasePath)README.md" />
@@ -309,6 +311,7 @@
     <Copy SourceFiles="$(SolutionDir)assets\icon.png" DestinationFiles="$(ReleasePath)icon.png" />
     <Copy SourceFiles="$(SolutionDir)assets\genesis-models" DestinationFiles="$(ReleasePath)plugins\genesis-models" />
     <Copy SourceFiles="$(SolutionDir)assets\genesis-models-lab" DestinationFiles="$(ReleasePath)plugins\genesis-models-lab" />
+    <Copy SourceFiles="$(SolutionDir)assets\orbitalrings-models" DestinationFiles="$(ReleasePath)plugins\orbitalrings-models" />
     <Copy SourceFiles="$(SolutionDir)lib\Newtonsoft.Json.dll" DestinationFiles="$(ReleasePath)plugins\Newtonsoft.Json.dll" />
   </Target>
 </Project>
