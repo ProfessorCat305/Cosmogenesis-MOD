@@ -138,6 +138,16 @@ namespace ProjectOrbitalRing.Utils
                 }
             }
 
+            //switch (registerModelId) {
+                //case ProtoID.M深空物流港:
+                //    AddMaterial806(ref newMats);
+                //    break;
+
+                //case ProtoID.M轨道熔炼站:
+                //    AddMaterial801(ref newMats);
+                //    break;
+            //}
+
             ModelProto registerModel = ProtoRegistry.RegisterModel(registerModelId, prefabPath, newMats.ToArray());
 
             registerModel.HpMax = oriModel.HpMax;
@@ -145,6 +155,22 @@ namespace ProjectOrbitalRing.Utils
             registerModel.RuinType = ERuinType.Normal;
             registerModel.RuinCount = 1;
         }
+
+        //private static void AddMaterial806(ref List<Material> newMats)
+        //{
+        //    ModelProto oriModel = LDB.models.Select(403); // 信号塔modelindex
+        //    var collectEffectMat = new Material(oriModel.prefabDesc.lodMaterials[0][0]);
+
+        //    newMats.Add(collectEffectMat);
+        //}
+
+        //private static void AddMaterial801(ref List<Material> newMats)
+        //{
+        //    ModelProto oriModel = LDB.models.Select(56); // 地上太阳
+        //    var collectEffectMat = new Material(oriModel.prefabDesc.lodMaterials[0][1]);
+
+        //    newMats.Add(collectEffectMat);
+        //}
 
         //private static void AddAtmosphericCollectStation()
         //{
@@ -291,6 +317,11 @@ namespace ProjectOrbitalRing.Utils
             prefabDescLODMaterial[1].SetColor("_TintColor", new Color(0.0f, 0.1f, 0f));  // 亮部
             prefabDescLODMaterial[1].SetColor("_TintColor1", new Color(0.0f, 0.0f, 0.0f)); // 暗部
             prefabDescLODMaterial[1].SetColor("_RimColor", new Color(0.1f, 1.084f, 0.1000f));   // 边缘特效
+
+            //prefabDesc = LDB.models.Select(45).prefabDesc;
+            //prefabDescLODMaterial = ref prefabDesc.lodMaterials[0];
+            //texture = TextureHelper.GetTexture("energy-exchanger-a");
+            //prefabDescLODMaterial[0].SetTexture("_MainTex", texture);
 
             prefabDesc = LDB.models.Select(ProtoID.M矩阵研究站).prefabDesc;
             prefabDescLODMaterial = ref prefabDesc.lodMaterials[0];

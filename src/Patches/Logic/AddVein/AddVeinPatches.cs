@@ -8,7 +8,6 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using CommonAPI;
-using GalacticScale;
 using HarmonyLib;
 using Newtonsoft.Json.Linq;
 using ProjectOrbitalRing.Patches.Logic.OrbitalRing;

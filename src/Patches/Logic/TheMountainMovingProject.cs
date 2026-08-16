@@ -107,6 +107,9 @@ namespace ProjectOrbitalRing.Patches.Logic
                         } else {
                             return;
                         }
+                        if (mineCount <= 0) {
+                            mineCount = 999999999;
+                        }
                         int num13 = __instance.player.TryAddItemToPackage(addToPackageItem, mineCount, 0, throwTrash: true);
                         __instance.AddProductionStat(veinProto.MiningItem, mineCount, factory);
                         __instance.miningFlag |= 1 << (int)veinData.type;

@@ -7984,7 +7984,9 @@
         "PreTechs": [
             1606
         ],
-        "PreTechsImplicit": [],
+        "PreTechsImplicit": [
+            1305
+        ],
         "Items": [
             6279,
             6004
@@ -8027,18 +8029,14 @@
         "PreTechs": [
             1976
         ],
-        "PreTechsImplicit": [
-            1305
-        ],
+        "PreTechsImplicit": [],
         "Items": [
-            6279,
-            6004
+            6532
         ],
         "ItemPoints": [
-            10,
-            10
+            1
         ],
-        "HashNeeded": 288000,
+        "HashNeeded": 3600,
         "UnlockRecipes": [
             716,
             717
@@ -8050,7 +8048,7 @@
         "MaxLevel": 0,
         "LevelCoef1": 0,
         "LevelCoef2": 0,
-        "IsLabTech": true,
+        "IsLabTech": false,
         "PreTechsMax": false,
         "AddItems": [],
         "AddItemCounts": [],

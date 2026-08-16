@@ -251,6 +251,9 @@ namespace ProjectOrbitalRing.Patches.Logic
 
         public static void GasPowerGen_Patch(PlayerAction_Mine playerAction)
         {
+            if (!GameMain.history.TechUnlocked(1976)) {
+                return;
+            }
             DotNet35Random DotNet35Random = new DotNet35Random();
             double random = DotNet35Random.NextDouble();
             if (random > 0.00001 && random <= 0.9501) {
@@ -265,6 +268,9 @@ namespace ProjectOrbitalRing.Patches.Logic
             if (num5 > 0) {
                 UIItemup.Up(itemId, num5);
                 UIRealtimeTip.PopupItemGet(itemId, num5, playerAction.player.position - playerAction.player.position.normalized * 2f, 0);
+                if (!GameMain.history.TechUnlocked(1977)) {
+                    GameMain.history.UnlockTech(1977);
+                }
             }
         }
     }

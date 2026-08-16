@@ -2270,8 +2270,8 @@
     },
     {
         "Name": "T气云精炼",
-        "ZHCN": "气态巨行星除了富含大量的氢，甲烷之外，深处还有部分碳以及其同素异形体：富勒烯，这亦是种潜力强大的新型材料，等待我们利用起来。",
-        "ENUS": "Gas giant planets are not only rich in hydrogen and methane, but also contain some carbon and its allotropes: fullerenes, which are powerful new materials waiting for us to utilize."
+        "ZHCN": "气态巨行星除了富含大量的氢，甲烷之外，深处还有部分碳以及其同素异形体：富勒烯，这亦是种潜力强大的新型材料，等待我们利用起来。\n在气巨上<color=\"#FD965ECC\">手动开采</color>气态巨行星物质<color=\"#FD965ECC\">概率</color>获得<color=\"#FD965ECC\">富勒醇</color>",
+        "ENUS": "Gas giant planets are not only rich in hydrogen and methane, but also contain some carbon and its allotropes: fullerenes, which are powerful new materials waiting for us to utilize.\n <color=\"#FD965ECC\">Manually mining</color> the gaseous giant planet's material on the gas giant with a <color=\"#FD965ECC\">probability</color> to obtain <color=\"#FD965ECC\">fullerenols</color>"
     },
     {
         "Name": "气云超精炼",
@@ -2290,8 +2290,8 @@
     },
     {
         "Name": "T富勒烯研究",
-        "ZHCN": "碳是一种神奇的元素，在材料学上光只有它一种元素就有无定形碳，石墨，钻石，石墨烯，碳纳米管等诸多结构，而现在，还有一种结构：球形碳富勒烯，无论是在球内内嵌原子，还是在球面节点上增加功能基团，都有重要的工业意义。\n在气巨上<color=\"#FD965ECC\">手动开采</color>气态巨行星物质<color=\"#FD965ECC\">概率</color>获得<color=\"#FD965ECC\">富勒醇</color>",
-        "ENUS": "Carbon is a magical element, and in materials science, there are many structures of amorphous carbon, graphite, diamond, graphene, carbon nanotubes, and so on. Nowadays, there is also a structure called spherical carbon fullerene, which has important industrial significance whether it is embedding atoms inside the sphere or adding functional groups to the spherical nodes.\n <color=\"#FD965ECC\">Manually mining</color> the gaseous giant planet's material on the gas giant with a <color=\"#FD965ECC\">probability</color> to obtain <color=\"#FD965ECC\">fullerenols</color>"
+        "ZHCN": "碳是一种神奇的元素，在材料学上光只有它一种元素就有无定形碳，石墨，钻石，石墨烯，碳纳米管等诸多结构，而现在，还有一种结构：球形碳富勒烯，无论是在球内内嵌原子，还是在球面节点上增加功能基团，都有重要的工业意义。\n在气巨上<color=\"#FD965ECC\">手动开采</color>气态巨行星物质<color=\"#FD965ECC\">概率获得富勒醇</color>后，<color=\"#FD965ECC\">此科技自动解锁</color>",
+        "ENUS": "Carbon is a magical element, and in materials science, there are many structures of amorphous carbon, graphite, diamond, graphene, carbon nanotubes, and so on. Nowadays, there is also a structure called spherical carbon fullerene, which has important industrial significance whether it is embedding atoms inside the sphere or adding functional groups to the spherical nodes.\n After <color=\"#FD965ECC\">Manually mining</color> the gaseous giant planet's material on the gas giant with a <color=\"#FD965ECC\">probability to obtain fullerenols, this technology will be automatically unlocked</color>"
     },
     {
         "Name": "富勒醇",

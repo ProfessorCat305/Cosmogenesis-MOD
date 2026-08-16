@@ -235,10 +235,6 @@
         "enemyGenMatter": 360
     },
     {
-        "ModelID": 371,
-        "dispenserMaxCourierCount": 20
-    },
-    {
         "ModelID": 373,
         "turretDamageScale": 3,
         "turretMaxAttackRange": 35
