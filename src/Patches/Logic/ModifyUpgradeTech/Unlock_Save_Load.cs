@@ -735,7 +735,7 @@ namespace ProjectOrbitalRing.Patches.Logic.ModifyUpgradeTech
             }
         }
 
-        public static readonly double[] AntiMatterOutCountsUpgrades = { 0.6, 0.4, 0.2 };
+        public static readonly double[] AntiMatterOutCountsUpgrades = { 0.2, 0.4, 0.6 };
 
         static void AntiMatterOutCountsTech(int techId) {
             if (techId == 1959) {
@@ -952,6 +952,8 @@ namespace ProjectOrbitalRing.Patches.Logic.ModifyUpgradeTech
                 if (isUnlockHandcraft) {
                     UnlockHandcraft();
                 }
+
+                
             }
             catch (EndOfStreamException)
             {
@@ -1022,6 +1024,12 @@ namespace ProjectOrbitalRing.Patches.Logic.ModifyUpgradeTech
                 if (isUnlockHandcraft) {
                     UnlockHandcraft();
                 }
+            }
+
+            // 已解锁地基科技的存档读档好像不会解锁tech设置里写的解锁func，所以这里手动解锁一下
+            if (GameMain.history.TechUnlocked(1415)) {
+                GameMain.history.UnlockTechFunction(37, 2201, 0);
+                GameMain.history.UnlockTechFunction(37, 2202, 0);
             }
         }
 

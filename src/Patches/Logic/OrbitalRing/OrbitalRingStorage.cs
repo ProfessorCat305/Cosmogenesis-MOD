@@ -403,8 +403,8 @@ namespace ProjectOrbitalRing.Patches.Logic.OrbitalRing
                                     __instance.bulletId = 1803;
                                 }
                             }
-                            if (__instance.bulletCount < 10) {
-                                int reloadNum = 40 - __instance.bulletCount;
+                            if (__instance.bulletCount < 40) {
+                                int reloadNum = 60 - __instance.bulletCount;
                                 lock (storageItem) {
                                     if (storageItem.ContainsKey(__instance.bulletId)) {
                                         int count = (storageItem[__instance.bulletId][0] >= reloadNum) ? reloadNum : storageItem[__instance.bulletId][0];

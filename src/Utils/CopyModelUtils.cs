@@ -138,15 +138,27 @@ namespace ProjectOrbitalRing.Utils
                 }
             }
 
-            //switch (registerModelId) {
+            switch (registerModelId) {
                 //case ProtoID.M深空物流港:
                 //    AddMaterial806(ref newMats);
                 //    break;
 
-                //case ProtoID.M轨道熔炼站:
-                //    AddMaterial801(ref newMats);
-                //    break;
-            //}
+                case ProtoID.M轨道熔炼站:
+                    AddMaterial801(ref newMats);
+                    break;
+
+                case ProtoID.M轨道水培舱:
+                    AddMaterial810(ref newMats);
+                    break;
+
+                case ProtoID.M轨道观测站:
+                    AddMaterial804(ref newMats);
+                    break;
+
+                case ProtoID.M星环对撞机:
+                    AddMaterial811(ref newMats);
+                    break;
+            }
 
             ModelProto registerModel = ProtoRegistry.RegisterModel(registerModelId, prefabPath, newMats.ToArray());
 
@@ -164,13 +176,96 @@ namespace ProjectOrbitalRing.Utils
         //    newMats.Add(collectEffectMat);
         //}
 
-        //private static void AddMaterial801(ref List<Material> newMats)
-        //{
-        //    ModelProto oriModel = LDB.models.Select(56); // 地上太阳
-        //    var collectEffectMat = new Material(oriModel.prefabDesc.lodMaterials[0][1]);
+        private static void AddMaterial801(ref List<Material> newMats)
+        {
+            ModelProto oriModel = LDB.models.Select(62); // 电弧熔炉
+            PrefabDesc desc = oriModel.prefabDesc;
+            int i = 0;
+            // 导入ab包的大塔模型的材质没有station back，所以这里踢掉
+            newMats.RemoveAt(1);
+            foreach (Material[] lodMats in desc.lodMaterials) {
+                if (lodMats == null) continue;
+                foreach (Material mat in lodMats) {
+                    if (mat == null) continue;
 
-        //    newMats.Add(collectEffectMat);
-        //}
+                    var newMaterial = new Material(mat);
+                    newMats.Add(newMaterial);
+                    i++;
+                }
+            }
+        }
+
+
+        private static void AddMaterial810(ref List<Material> newMats)
+        {
+            ModelProto oriModel = LDB.models.Select(64); // 化工厂
+            PrefabDesc desc = oriModel.prefabDesc;
+            int i = 0;
+            // 导入ab包的大塔模型的材质没有station back，所以这里踢掉
+            newMats.RemoveAt(1);
+            foreach (Material[] lodMats in desc.lodMaterials) {
+                if (lodMats == null) continue;
+                foreach (Material mat in lodMats) {
+                    if (mat == null) continue;
+                    // 导入ab包的化工球模型的材质没有使用 chemical-plant-black，所以这里踢掉
+                    if (i == 2) {
+                        i++;
+                        continue;
+                    }
+                    if (i == 1) {
+                        mat.SetVector("_SpherePos", new Vector4(0f, 32.22f, 0f, 7.2f));
+                    }
+                    if (i == 3) {
+                        mat.SetVector("_SpherePos", new Vector4(0f, 32.22f, 0f, 7.2f));
+                    }
+
+                    var newMaterial = new Material(mat);
+                    newMats.Add(newMaterial);
+                    i++;
+                }
+            }
+        }
+
+
+        private static void AddMaterial804(ref List<Material> newMats)
+        {
+            ModelProto oriModel = LDB.models.Select(63); // 原油精炼厂
+            PrefabDesc desc = oriModel.prefabDesc;
+            int i = 0;
+            // 导入ab包的大塔模型的材质没有station back，所以这里踢掉
+            newMats.RemoveAt(1);
+            foreach (Material[] lodMats in desc.lodMaterials) {
+                if (lodMats == null) continue;
+                foreach (Material mat in lodMats) {
+                    if (mat == null) continue;
+                    if (i == 1) {
+                        i++;
+                        continue;
+                    }
+                    var newMaterial = new Material(mat);
+                    newMats.Add(newMaterial);
+                    i++;
+                }
+            }
+        }
+
+        private static void AddMaterial811(ref List<Material> newMats)
+        {
+            ModelProto oriModel = LDB.models.Select(69); // 微型粒子对撞机
+            PrefabDesc desc = oriModel.prefabDesc;
+            int i = 0;
+            // 导入ab包的大塔模型的材质没有station back，所以这里踢掉
+            newMats.RemoveAt(1);
+            foreach (Material[] lodMats in desc.lodMaterials) {
+                if (lodMats == null) continue;
+                foreach (Material mat in lodMats) {
+                    if (mat == null) continue;
+                    var newMaterial = new Material(mat);
+                    newMats.Add(newMaterial);
+                    i++;
+                }
+            }
+        }
 
         //private static void AddAtmosphericCollectStation()
         //{
@@ -318,10 +413,18 @@ namespace ProjectOrbitalRing.Utils
             prefabDescLODMaterial[1].SetColor("_TintColor1", new Color(0.0f, 0.0f, 0.0f)); // 暗部
             prefabDescLODMaterial[1].SetColor("_RimColor", new Color(0.1f, 1.084f, 0.1000f));   // 边缘特效
 
-            //prefabDesc = LDB.models.Select(45).prefabDesc;
-            //prefabDescLODMaterial = ref prefabDesc.lodMaterials[0];
-            //texture = TextureHelper.GetTexture("energy-exchanger-a");
-            //prefabDescLODMaterial[0].SetTexture("_MainTex", texture);
+            prefabDesc = LDB.models.Select(45).prefabDesc;
+            prefabDescLODMaterial = ref prefabDesc.lodMaterials[0];
+            texture = TextureHelper.GetTexture("能量枢纽贴图");
+            prefabDescLODMaterial[0].SetTexture("_MainTex", texture);
+
+            prefabDesc = LDB.models.Select(828).prefabDesc;
+            // 原lodDistances数据 85 5000 0 0，镜头在拉到85之外会导致黑色贴图修改失效，重新变成白色，原因未知，只能把lodDistances改大
+            // lodDistances应该是用于优化性能，镜头拉远就切换低精度贴图，这么改可能会损失性能，不过黑盒不会大批量使用，应该还好
+            prefabDesc.lodDistances = new float[] { 20000f, 20000f, 0f, 0f };
+            prefabDescLODMaterial = ref prefabDesc.lodMaterials[0];
+            texture = TextureHelper.GetTexture("黑盒-a");
+            prefabDescLODMaterial[0].SetTexture("_MainTex", texture);
 
             prefabDesc = LDB.models.Select(ProtoID.M矩阵研究站).prefabDesc;
             prefabDescLODMaterial = ref prefabDesc.lodMaterials[0];

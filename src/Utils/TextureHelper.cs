@@ -34,15 +34,18 @@ namespace ProjectOrbitalRing.Utils
 
                     var texture = new Texture2D(2, 2);
                     if (type == "sprite") {
+                        texture = new Texture2D(2, 2);
                         if (!texture.LoadImage(bytes)) return null;
 
                     } else if (type == "texture") {
+                        texture = new Texture2D(2, 2, TextureFormat.ARGB32, true, false); // 加了这句后换贴图生效了，不过=======括住的部分不知道有没有一起生效，先留着了
+                        //=====================
                         if (!texture.LoadImage(bytes, markNonReadable: false)) {
                             ProjectOrbitalRing.LogInfo($"LoadImage failed for {name}");
                             UnityEngine.Object.DestroyImmediate(texture);
                             return null;
                         }
-
+                        
                         texture.filterMode = FilterMode.Bilinear;
                         texture.wrapMode = TextureWrapMode.Repeat;
 
@@ -66,6 +69,7 @@ namespace ProjectOrbitalRing.Utils
                         texture.SetPixels(pixels);
                         texture.Apply(true); // true = 更新mipmaps
                     }
+                    //=====================
 
                     texture.name = name;
                     Cache[name] = texture;

@@ -788,6 +788,8 @@ namespace ProjectOrbitalRing.Patches.Logic.ModifyUpgradeTech
                         techProto.RefreshTranslation();
                         techProto.UnlockFunctions = new int[] { 68, 69 };
                         techProto.UnlockValues = new double[] { 0.1, 0.15 };
+                        techProto.Items = new int[] { 6003 };
+                        techProto.ItemPoints = new int[] { techProto.ItemPoints[0] };
                         break;
                     case 5602:
                         techProto.Name = "迭代升级";

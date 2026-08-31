@@ -2223,8 +2223,14 @@
         "UnlockRecipes": [
             112
         ],
-        "UnlockFunctions": [],
-        "UnlockValues": [],
+        "UnlockFunctions": [
+            37,
+            37
+        ],
+        "UnlockValues": [
+            2201,
+            2202
+        ],
         "Published": true,
         "Level": 0,
         "MaxLevel": 0,
@@ -2965,12 +2971,8 @@
             80,
             81
         ],
-        "UnlockFunctions": [
-            37
-        ],
-        "UnlockValues": [
-            2316
-        ],
+        "UnlockFunctions": [],
+        "UnlockValues": [],
         "Published": true,
         "Level": 0,
         "MaxLevel": 0,

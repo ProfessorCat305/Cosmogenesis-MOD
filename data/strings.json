@@ -1105,8 +1105,8 @@
     },
     {
         "Name": "I能量枢纽",
-        "ZHCN": "电力转换装置，既可以将电网内富余的电能存储到空蓄电器mk2内，制成满蓄电器mk2；也可以将满蓄电器mk2储存的电能释放出来。\n当处于充电状态时，空蓄电器mk2只能从横向入口输入，但可以在横向入口输出，因此可以直接将空蓄电器mk2<color=\"#FD965ECC\">串联</color>输入多个能量枢纽",
-        "ENUS": "The power conversion device can either store excess electric energy from the power grid in the empty storage device mk2, turning it into a full storage device mk2, or release the stored electric energy from the full storage device mk2.\nWhen in a charging state, the empty storage device mk2 can only be inputted through the horizontal entrance, but can be outputted through the same entrance. Therefore, it is possible to directly input multiple energy hubs <color=\"#FD965ECC\">in series</color> with the empty storage device mk2"
+        "ZHCN": "电力转换装置，既可以将电网内富余的电能存储到空蓄电器mk2内，制成满蓄电器mk2；也可以将满蓄电器mk2储存的电能释放出来。\n当处于充电状态时，空蓄电器mk2只能从<color=\"#FD965ECC\">带红色三角标识的口</color>输入，但可以在另一个带红色三角标识的口输出，因此可以直接将空蓄电器mk2<color=\"#FD965ECC\">串联</color>输入多个能量枢纽",
+        "ENUS": "The power conversion device can either store excess electric energy from the power grid in the empty Battery MK2, turning it into a full Battery MK2, or release the stored electric energy from the full Battery MK2.\nWhen in a charging state, the empty Battery MK2 can only be inputted through the <color=\"#FD965ECC\">entrance with red triangle sign</color>, but can be outputted through the another entrance with red triangle sign. Therefore, it is possible to directly input multiple energy hubs <color=\"#FD965ECC\">in series</color> with the empty Battery MK2"
     },
     {
         "Name": "重油",
@@ -1375,8 +1375,8 @@
     },
     {
         "Name": "I预加工伺服器",
-        "ZHCN": "通过大量传感器以及服务器群集，对所属工厂的每一批原料进行精细地测量，并实时生成对应的预加工步骤并操控机床完成，从而使正式加工环节能以更快的速度，更高的良品率加工出成品。\n<color=\"#FD965ECC\">放置在制造台的插件槽生效，使该制造台以二级增产状态运行</color>\n<color=\"#FD965ECC\">该伺服器会使安装的制造台额外增加5.04mw能耗</color>",
-        "ENUS": "Through a large number of sensors and server clusters, each batch of raw materials in the factory is finely measured, and corresponding pre-processing steps are generated in real time and controlled by the machine tool to complete them, so that the formal processing process can produce finished products at a faster speed and higher yield.\n<color=\"#FD965ECC\">The plug-in slot placed in the manufacturing station takes effect, allowing the manufacturing station to operate in a secondary production state</color>\n<color=\"#FD965ECC\">This server will add an additional 5.04mw of energy consumption to the installed manufacturing station</color>"
+        "ZHCN": "通过大量传感器以及服务器群集，对所属工厂的每一批原料进行精细地测量，并实时生成对应的预加工步骤并操控机床完成，从而使正式加工环节能以更快的速度，更高的良品率加工出成品。\n<color=\"#FD965ECC\">放置在制造台的插件槽生效，使该制造台以二级增产状态运行，若原料涂有增产剂则两者之间取最高效果</color>\n<color=\"#FD965ECC\">该伺服器会使安装的制造台额外增加5.04mw能耗</color>",
+        "ENUS": "Through a large number of sensors and server clusters, each batch of raw materials in the factory is finely measured, and corresponding pre-processing steps are generated in real time and controlled by the machine tool to complete them, so that the formal processing process can produce finished products at a faster speed and higher yield.\n<color=\"#FD965ECC\">The plug-in slot placed in the manufacturing station takes effect, allowing the manufacturing station to operate in a secondary production state, If the raw material is coated with Proliferator, the highest effect is taken between the two</color>\n<color=\"#FD965ECC\">This server will add an additional 5.04mw of energy consumption to the installed manufacturing station</color>"
     },
     {
         "Name": "活性化编程",
@@ -1395,8 +1395,8 @@
     },
     {
         "Name": "I智能伺服器",
-        "ZHCN": "部署了活性化深度学习网络的量子伺服器，强大的自适应学习能力能根据原料之间细微的差别专门定制出更加贴合实际情况的预加工方案。\n<color=\"#FD965ECC\">放置在制造台的插件槽生效，使该制造台以三级增产状态运行</color>\n<color=\"#FD965ECC\">该伺服器会使安装的制造台额外增加12.6mw能耗</color>",
-        "ENUS": "A quantum server with activated deep learning networks has been deployed, and its powerful adaptive learning ability can customize pre-processing solutions that are more tailored to actual situations based on subtle differences between raw materials.\n<color=\"#FD965ECC\">The plug-in slot placed in the manufacturing station takes effect, allowing the manufacturing station to operate in a three-level production increase state</color>\n<color=\"#FD965ECC\">This server will add an additional 12.6mw of energy consumption to the installed manufacturing station</color>"
+        "ZHCN": "部署了活性化深度学习网络的量子伺服器，强大的自适应学习能力能根据原料之间细微的差别专门定制出更加贴合实际情况的预加工方案。\n<color=\"#FD965ECC\">放置在制造台的插件槽生效，使该制造台以三级增产状态运行，若原料涂有增产剂则两者之间取最高效果</color>\n<color=\"#FD965ECC\">该伺服器会使安装的制造台额外增加12.6mw能耗</color>",
+        "ENUS": "A quantum server with activated deep learning networks has been deployed, and its powerful adaptive learning ability can customize pre-processing solutions that are more tailored to actual situations based on subtle differences between raw materials.\n<color=\"#FD965ECC\">The plug-in slot placed in the manufacturing station takes effect, allowing the manufacturing station to operate in a three-level production increase state, If the raw material is coated with Proliferator, the highest effect is taken between the two</color>\n<color=\"#FD965ECC\">This server will add an additional 12.6mw of energy consumption to the installed manufacturing station</color>"
     },
     {
         "Name": "水冷伺服器",
@@ -1425,8 +1425,8 @@
     },
     {
         "Name": "I伺服天穹组件",
-        "ZHCN": "安装在天枢座的大型服务器群集组件，利用石墨烯的超高导热性，以面积巨大的散热膜维持这个行星级超算服务器的散热，当所属的星环建设完整时，将为全行星的制造台提供预加工伺服能力。\n<color=\"#FD965ECC\">建造在拥有完整星环的天枢座，且供电充足时，为全球的制造台提供一级增产状态</color>",
-        "ENUS": "The large server cluster component installed in the constellation of the Celestial Pivot utilizes the ultra-high thermal conductivity of graphene and a large heat dissipation film to maintain the heat dissipation of this row star supercomputer server. When the corresponding Orbital Ring is fully constructed, it will provide pre-processing servo capabilities for the manufacturing stations of the entire planet.\n<color=\"#FD965ECC\">Built in the constellation of Tianzhu Seat with a complete orbital ring and sufficient power supply, it provides a first level production status for assemblers planetwide</color>"
+        "ZHCN": "安装在天枢座的大型服务器群集组件，利用石墨烯的超高导热性，以面积巨大的散热膜维持这个行星级超算服务器的散热，当所属的星环建设完整时，将为全行星的制造台提供预加工伺服能力。\n<color=\"#FD965ECC\">建造在拥有完整星环的天枢座，且供电充足时，为全球的制造台提供一级增产状态，若原料涂有增产剂，或插有伺服器则三者之间取最高效果</color>",
+        "ENUS": "The large server cluster component installed in the constellation of the Celestial Pivot utilizes the ultra-high thermal conductivity of graphene and a large heat dissipation film to maintain the heat dissipation of this row star supercomputer server. When the corresponding Orbital Ring is fully constructed, it will provide pre-processing servo capabilities for the manufacturing stations of the entire planet.\n<color=\"#FD965ECC\">Built in the constellation of Tianzhu Seat with a complete orbital ring and sufficient power supply, it provides a first level production status for assemblers planetwide, If the raw material is coated with Proliferator or inserted with a server, the highest effect is taken between the three</color>"
     },
     {
         "Name": "智能方尖碑",
@@ -1440,8 +1440,8 @@
     },
     {
         "Name": "I智能方尖碑",
-        "ZHCN": "安装在天枢座的超级量子超算，强大的算力通过星环能对全球每一个工厂的每一次制造过程都提供独立的定制优化加工方案，只有极为繁荣的工业星才会安装这种协调中枢。\n<color=\"#FD965ECC\">建造在拥有完整星环的天枢座，且供电充足时，为全球的制造台提供二级增产状态</color>",
-        "ENUS": "The super quantum supercomputer installed in the constellation of the Celestial Pivot provides independent customized and optimized processing solutions for every manufacturing process in every factory around the world through its powerful computing power. Only highly prosperous industrial stars would install this coordination center.\n<color=\"#FD965ECC\">Built in the constellation of Tianzhu Seat with a complete orbital ring and sufficient power supply, it provides a second level production status for assemblers planetwide</color>"
+        "ZHCN": "安装在天枢座的超级量子超算，强大的算力通过星环能对全球每一个工厂的每一次制造过程都提供独立的定制优化加工方案，只有极为繁荣的工业星才会安装这种协调中枢。\n<color=\"#FD965ECC\">建造在拥有完整星环的天枢座，且供电充足时，为全球的制造台提供二级增产状态，若原料涂有增产剂，或插有伺服器则三者之间取最高效果</color>",
+        "ENUS": "The super quantum supercomputer installed in the constellation of the Celestial Pivot provides independent customized and optimized processing solutions for every manufacturing process in every factory around the world through its powerful computing power. Only highly prosperous industrial stars would install this coordination center.\n<color=\"#FD965ECC\">Built in the constellation of Tianzhu Seat with a complete orbital ring and sufficient power supply, it provides a second level production status for assemblers planetwide, If the raw material is coated with Proliferator or inserted with a server, the highest effect is taken between the three</color>"
     },
     {
         "Name": "亿万械国",
@@ -1455,8 +1455,8 @@
     },
     {
         "Name": "I亿万械国",
-        "ZHCN": "加载了量子虚拟生命的超级量子超算，在天枢座上能将这个生命的“触感”延申至全球的制造台，其“机魂”能更加细致的分辨出零件的差异，哪怕在传感器里它们的数据完全一样。\n<color=\"#FD965ECC\">建造在拥有完整星环的天枢座，且供电充足时，为全球的制造台提供三级增产状态</color>",
-        "ENUS": "The super quantum supercomputer, loaded with quantum virtual life, can extend the \"touch\" of this life to assemblers planetwide on the Tian Shu Zuo. Its \"machine soul\" can distinguish the differences in parts more precisely, even if their data are exactly the same in the sensors.\n<color=\"#FD965ECC\">Built in the constellation of Tianzhu Seat with a complete orbital ring and sufficient power supply, it provides a third level production status for assemblers planetwide</color>"
+        "ZHCN": "加载了量子虚拟生命的超级量子超算，在天枢座上能将这个生命的“触感”延申至全球的制造台，其“机魂”能更加细致的分辨出零件的差异，哪怕在传感器里它们的数据完全一样。\n<color=\"#FD965ECC\">建造在拥有完整星环的天枢座，且供电充足时，为全球的制造台提供三级增产状态，若原料涂有增产剂，或插有伺服器则三者之间取最高效果</color>",
+        "ENUS": "The super quantum supercomputer, loaded with quantum virtual life, can extend the \"touch\" of this life to assemblers planetwide on the Tian Shu Zuo. Its \"machine soul\" can distinguish the differences in parts more precisely, even if their data are exactly the same in the sensors.\n<color=\"#FD965ECC\">Built in the constellation of Tianzhu Seat with a complete orbital ring and sufficient power supply, it provides a third level production status for assemblers planetwide, If the raw material is coated with Proliferator or inserted with a server, the highest effect is taken between the three</color>"
     },
     {
         "Name": "铀燃料棒",
@@ -1699,14 +1699,19 @@
         "ENUS": "A colorless gas with a strong irritating odor. It is usually stored as a liquid.\n<color=\"#FD965ECC\">When extracting fluid as water, the speed doubles</color>"
     },
     {
+        "Name": "I原型机",
+        "ZHCN": "地面部队，战斗无人机的原型机，可以在行星内协助伊卡洛斯进行战斗。虽然看起来比较简陋，却是一个很好的起点。在原型机的基础不断改造升级，可以获得性能更优秀的战斗无人机。\n注意：地面战斗机在太空中无法被召出！\n<color=\"#FD965ECC\">机兵升级计划系列将更改配方，会变得更昂贵\n机兵升级计划4级解锁制造台量产</color>",
+        "ENUS": "The ground force, the prototype of the combat UAV, can assist Icarus in fighting on the planet. Although it looks simple, it is a good starting point. The combat UAV with better performance can be obtained through continuous transformation and upgrading on the basis of the prototype.\nNote: ground UAV cannot be summoned in space!\n<color=\"#FD965ECC\">The Aircraft Upgrade Plan series will change the recipe of the UAV and will become more expensive\nLevel 4 of Aircraft Upgrade Plan will unlock the UAV for mass production at the Assembler</color>"
+    },
+    {
         "Name": "攻击无人机",
         "ZHCN": "攻击无人机",
         "ENUS": "Attack Drones"
     },
     {
         "Name": "I攻击无人机",
-        "ZHCN": "在原型机的基础上，向防护性能特化发展的分支，对钢装甲进行表面渗碳处理，以获得更强的防护性能。",
-        "ENUS": "On the basis of the prototype, the branch of specialized development towards protective performance is to perform surface carburizing treatment on steel armor to obtain stronger protective performance."
+        "ZHCN": "在原型机的基础上，向防护性能特化发展的分支，对钢装甲进行表面渗碳处理，以获得更强的防护性能。\n<color=\"#FD965ECC\">机兵升级计划系列将更改配方，会变得更昂贵\n机兵升级计划4级解锁制造台量产</color>",
+        "ENUS": "On the basis of the prototype, the branch of specialized development towards protective performance is to perform surface carburizing treatment on steel armor to obtain stronger protective performance.\n<color=\"#FD965ECC\">The Aircraft Upgrade Plan series will change the recipe of the UAV and will become more expensive\nLevel 4 of Aircraft Upgrade Plan will unlock the UAV for mass production at the Assembler</color>"
     },
     {
         "Name": "精准无人机",
@@ -1715,8 +1720,8 @@
     },
     {
         "Name": "I精准无人机",
-        "ZHCN": "在原型机的基础上，向远距离攻击性能特化发展的分支，使用光子合并器提升激光能级，能在极远的距离对目标发动精准地高威力射击。",
-        "ENUS": "On the basis of the prototype, a branch specialized in long-range attack performance is developed, which uses photon combiners to enhance laser energy levels and can launch precise high-power shots at targets at extremely long distances."
+        "ZHCN": "在原型机的基础上，向远距离攻击性能特化发展的分支，使用光子合并器提升激光能级，能在极远的距离对目标发动精准地高威力射击。\n<color=\"#FD965ECC\">机兵升级计划系列将更改配方，会变得更昂贵\n机兵升级计划4级解锁制造台量产</color>",
+        "ENUS": "On the basis of the prototype, a branch specialized in long-range attack performance is developed, which uses photon combiners to enhance laser energy levels and can launch precise high-power shots at targets at extremely long distances.\n<color=\"#FD965ECC\">The Aircraft Upgrade Plan series will change the recipe of the UAV and will become more expensive\nLevel 4 of Aircraft Upgrade Plan will unlock the UAV for mass production at the Assembler</color>"
     },
     {
         "Name": "攻击无人机A型",
@@ -1725,8 +1730,8 @@
     },
     {
         "Name": "I攻击无人机A型",
-        "ZHCN": "在原型机的基础上，向防护性能特化发展的分支，将坚硬的碳化硅陶瓷作为夹层埋入装甲钢中，形成复合装甲，赋予其更强的战场存活能力。\n<color=\"#FD965ECC\">遭受伤害时拥有20点护甲</color>",
-        "ENUS": "On the basis of the prototype, a branch of specialized development towards protective performance is formed by embedding hard silicon carbide ceramics as interlayers in armor steel to form composite armor, endowing it with stronger battlefield survivability.\n<color=\"#FD965ECC\">Have 20 points of armor when taking damage</color>"
+        "ZHCN": "在原型机的基础上，向防护性能特化发展的分支，将坚硬的碳化硅陶瓷作为夹层埋入装甲钢中，形成复合装甲，赋予其更强的战场存活能力。\n<color=\"#FD965ECC\">遭受伤害时拥有20点护甲</color>\n<color=\"#FD965ECC\">机兵升级计划系列将更改配方，会变得更昂贵\n机兵升级计划4级解锁制造台量产</color>",
+        "ENUS": "On the basis of the prototype, a branch of specialized development towards protective performance is formed by embedding hard silicon carbide ceramics as interlayers in armor steel to form composite armor, endowing it with stronger battlefield survivability.\n<color=\"#FD965ECC\">Have 20 points of armor when taking damage</color>\n<color=\"#FD965ECC\">The Aircraft Upgrade Plan series will change the recipe of the UAV and will become more expensive\nLevel 4 of Aircraft Upgrade Plan will unlock the UAV for mass production at the Assembler</color>"
     },
     {
         "Name": "精准无人机A型",
@@ -1735,8 +1740,8 @@
     },
     {
         "Name": "I精准无人机A型",
-        "ZHCN": "在原型机的基础上，向远距离攻击性能特化发展的分支，升级电控系统以提升火控性能。",
-        "ENUS": "On the basis of the prototype, a branch specialized in developing long-range attack performance, upgrading the electronic control system to enhance fire control performance."
+        "ZHCN": "在原型机的基础上，向远距离攻击性能特化发展的分支，升级电控系统以提升火控性能。\n<color=\"#FD965ECC\">机兵升级计划系列将更改配方，会变得更昂贵\n机兵升级计划4级解锁制造台量产</color>",
+        "ENUS": "On the basis of the prototype, a branch specialized in developing long-range attack performance, upgrading the electronic control system to enhance fire control performance.\n<color=\"#FD965ECC\">The Aircraft Upgrade Plan series will change the recipe of the UAV and will become more expensive\nLevel 4 of Aircraft Upgrade Plan will unlock the UAV for mass production at the Assembler</color>"
     },
     {
         "Name": "攻击无人机B型",
@@ -1745,8 +1750,8 @@
     },
     {
         "Name": "I攻击无人机B型",
-        "ZHCN": "在原型机的基础上，向防护性能特化发展的分支，将装甲钢替换为钛合金装甲，赋予其更强的战场存活能力。\n<color=\"#FD965ECC\">遭受伤害时拥有40点护甲</color>",
-        "ENUS": "On the basis of the prototype, the branch of specialized development towards protective performance replaces armor steel with titanium alloy armor, endowing it with stronger battlefield survivability.\n<color=\"#FD965ECC\">Have 40 points of armor when taking damage</color>"
+        "ZHCN": "在原型机的基础上，向防护性能特化发展的分支，将装甲钢替换为钛合金装甲，赋予其更强的战场存活能力。\n<color=\"#FD965ECC\">遭受伤害时拥有40点护甲</color>\n<color=\"#FD965ECC\">机兵升级计划系列将更改配方，会变得更昂贵\n机兵升级计划4级解锁制造台量产</color>",
+        "ENUS": "On the basis of the prototype, the branch of specialized development towards protective performance replaces armor steel with titanium alloy armor, endowing it with stronger battlefield survivability.\n<color=\"#FD965ECC\">Have 40 points of armor when taking damage</color>\n<color=\"#FD965ECC\">The Aircraft Upgrade Plan series will change the recipe of the UAV and will become more expensive\nLevel 4 of Aircraft Upgrade Plan will unlock the UAV for mass production at the Assembler</color>"
     },
     {
         "Name": "精准无人机B型",
@@ -1755,8 +1760,8 @@
     },
     {
         "Name": "I精准无人机B型",
-        "ZHCN": "在原型机的基础上，向远距离攻击性能特化发展的分支，使用金属氢作为储能介质，获得更高的能量输出以提升发射频率。",
-        "ENUS": "On the basis of the prototype, a branch specialized in long-range attack performance has been developed, using metallic hydrogen as an energy storage medium to achieve higher energy output and increase launch frequency."
+        "ZHCN": "在原型机的基础上，向远距离攻击性能特化发展的分支，使用金属氢作为储能介质，获得更高的能量输出以提升发射频率。\n<color=\"#FD965ECC\">机兵升级计划系列将更改配方，会变得更昂贵\n机兵升级计划4级解锁制造台量产</color>",
+        "ENUS": "On the basis of the prototype, a branch specialized in long-range attack performance has been developed, using metallic hydrogen as an energy storage medium to achieve higher energy output and increase launch frequency.\n<color=\"#FD965ECC\">The Aircraft Upgrade Plan series will change the recipe of the UAV and will become more expensive\nLevel 4 of Aircraft Upgrade Plan will unlock the UAV for mass production at the Assembler</color>"
     },
     {
         "Name": "攻击无人机C型",
@@ -1765,8 +1770,8 @@
     },
     {
         "Name": "I攻击无人机C型",
-        "ZHCN": "在原型机的基础上，向防护性能特化发展的分支，将钛合金装甲替换为贫铀装甲，赋予其更强的战场存活能力。\n<color=\"#FD965ECC\">遭受伤害时拥有60点护甲</color>",
-        "ENUS": "On the basis of the prototype, the branch of specialized development towards protective performance replaces titanium alloy armor with depleted uranium armor, endowing it with stronger battlefield survivability.\n<color=\"#FD965ECC\">Have 60 points of armor when taking damage</color>"
+        "ZHCN": "在原型机的基础上，向防护性能特化发展的分支，将钛合金装甲替换为贫铀装甲，赋予其更强的战场存活能力。\n<color=\"#FD965ECC\">遭受伤害时拥有60点护甲</color>\n<color=\"#FD965ECC\">机兵升级计划系列将更改配方，会变得更昂贵\n机兵升级计划4级解锁制造台量产</color>",
+        "ENUS": "On the basis of the prototype, the branch of specialized development towards protective performance replaces titanium alloy armor with depleted uranium armor, endowing it with stronger battlefield survivability.\n<color=\"#FD965ECC\">Have 60 points of armor when taking damage</color>\n<color=\"#FD965ECC\">The Aircraft Upgrade Plan series will change the recipe of the UAV and will become more expensive\nLevel 4 of Aircraft Upgrade Plan will unlock the UAV for mass production at the Assembler</color>"
     },
     {
         "Name": "精准无人机C型",
@@ -1775,8 +1780,8 @@
     },
     {
         "Name": "I精准无人机C型",
-        "ZHCN": "在原型机的基础上，向远距离攻击性能特化发展的分支，将武器系统从激光升级为粒子射流，提升发射频率。",
-        "ENUS": "On the basis of the prototype, a branch specialized in long-range attack performance has been developed, upgrading the weapon system from laser to particle jet and increasing the launch frequency."
+        "ZHCN": "在原型机的基础上，向远距离攻击性能特化发展的分支，将武器系统从激光升级为粒子射流，提升发射频率。\n<color=\"#FD965ECC\">机兵升级计划系列将更改配方，会变得更昂贵\n机兵升级计划4级解锁制造台量产</color>",
+        "ENUS": "On the basis of the prototype, a branch specialized in long-range attack performance has been developed, upgrading the weapon system from laser to particle jet and increasing the launch frequency.\n<color=\"#FD965ECC\">The Aircraft Upgrade Plan series will change the recipe of the UAV and will become more expensive\nLevel 4 of Aircraft Upgrade Plan will unlock the UAV for mass production at the Assembler</color>"
     },
     {
         "Name": "攻击无人机D型",
@@ -1785,8 +1790,8 @@
     },
     {
         "Name": "I攻击无人机D型",
-        "ZHCN": "在原型机的基础上，向防护性能特化发展的分支，优化了零件与结构设计，赋予其更强的战场存活能力。\n<color=\"#FD965ECC\">遭受伤害时拥有80点护甲</color>",
-        "ENUS": "On the basis of the prototype, the branch of specialized development towards protective performance has optimized the design of parts and structures, endowing it with stronger battlefield survivability.\n<color=\"#FD965ECC\">Have 80 points of armor when taking damage</color>"
+        "ZHCN": "在原型机的基础上，向防护性能特化发展的分支，优化了零件与结构设计，赋予其更强的战场存活能力。\n<color=\"#FD965ECC\">遭受伤害时拥有80点护甲</color>\n<color=\"#FD965ECC\">机兵升级计划系列将更改配方，会变得更昂贵\n机兵升级计划4级解锁制造台量产</color>",
+        "ENUS": "On the basis of the prototype, the branch of specialized development towards protective performance has optimized the design of parts and structures, endowing it with stronger battlefield survivability.\n<color=\"#FD965ECC\">Have 80 points of armor when taking damage</color>\n<color=\"#FD965ECC\">The Aircraft Upgrade Plan series will change the recipe of the UAV and will become more expensive\nLevel 4 of Aircraft Upgrade Plan will unlock the UAV for mass production at the Assembler</color>"
     },
     {
         "Name": "精准无人机D型",
@@ -1795,8 +1800,8 @@
     },
     {
         "Name": "I精准无人机D型",
-        "ZHCN": "在原型机的基础上，向远距离攻击性能特化发展的分支，优化了零件与结构设计，提升了发射频率。",
-        "ENUS": "On the basis of the prototype, a branch specialized in long-range attack performance has been developed, optimizing component and structural design and increasing launch frequency."
+        "ZHCN": "在原型机的基础上，向远距离攻击性能特化发展的分支，优化了零件与结构设计，提升了发射频率。\n<color=\"#FD965ECC\">机兵升级计划系列将更改配方，会变得更昂贵\n机兵升级计划4级解锁制造台量产</color>",
+        "ENUS": "On the basis of the prototype, a branch specialized in long-range attack performance has been developed, optimizing component and structural design and increasing launch frequency.\n<color=\"#FD965ECC\">The Aircraft Upgrade Plan series will change the recipe of the UAV and will become more expensive\nLevel 4 of Aircraft Upgrade Plan will unlock the UAV for mass production at the Assembler</color>"
     },
     {
         "Name": "攻击无人机E型",
@@ -1805,8 +1810,8 @@
     },
     {
         "Name": "I攻击无人机E型",
-        "ZHCN": "在原型机的基础上，向防护性能特化发展的分支，复合装甲的夹层使用了更加坚硬的钛晶石，赋予其更强的战场存活能力。\n<color=\"#FD965ECC\">遭受伤害时拥有100点护甲</color>",
-        "ENUS": "On the basis of the prototype, a branch of specialized development towards protective performance, the interlayer of composite armor uses harder titanium crystals, giving it stronger battlefield survivability.\n<color=\"#FD965ECC\">Have 100 points of armor when taking damage</color>"
+        "ZHCN": "在原型机的基础上，向防护性能特化发展的分支，复合装甲的夹层使用了更加坚硬的钛晶石，赋予其更强的战场存活能力。\n<color=\"#FD965ECC\">遭受伤害时拥有100点护甲</color>\n<color=\"#FD965ECC\">机兵升级计划系列将更改配方，会变得更昂贵\n机兵升级计划4级解锁制造台量产</color>",
+        "ENUS": "On the basis of the prototype, a branch of specialized development towards protective performance, the interlayer of composite armor uses harder titanium crystals, giving it stronger battlefield survivability.\n<color=\"#FD965ECC\">Have 100 points of armor when taking damage</color>\n<color=\"#FD965ECC\">The Aircraft Upgrade Plan series will change the recipe of the UAV and will become more expensive\nLevel 4 of Aircraft Upgrade Plan will unlock the UAV for mass production at the Assembler</color>"
     },
     {
         "Name": "精准无人机E型",
@@ -1815,8 +1820,8 @@
     },
     {
         "Name": "I精准无人机E型",
-        "ZHCN": "在原型机的基础上，向远距离攻击性能特化发展的分支，集成了小型粒子加速器，提升了发射频率。",
-        "ENUS": "On the basis of the prototype, a branch specialized in long-range attack performance has been developed, integrating small particle accelerators and increasing the launch frequency."
+        "ZHCN": "在原型机的基础上，向远距离攻击性能特化发展的分支，集成了小型粒子加速器，提升了发射频率。\n<color=\"#FD965ECC\">机兵升级计划系列将更改配方，会变得更昂贵\n机兵升级计划4级解锁制造台量产</color>",
+        "ENUS": "On the basis of the prototype, a branch specialized in long-range attack performance has been developed, integrating small particle accelerators and increasing the launch frequency.\n<color=\"#FD965ECC\">The Aircraft Upgrade Plan series will change the recipe of the UAV and will become more expensive\nLevel 4 of Aircraft Upgrade Plan will unlock the UAV for mass production at the Assembler</color>"
     },
     {
         "Name": "碳粉",

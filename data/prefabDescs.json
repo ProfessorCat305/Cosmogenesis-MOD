@@ -28,7 +28,7 @@
         "powerConnectDistance": 40.5,
         "powerCoverRadius": 20.5,
         "allowBuildInWater": true,
-        "needBuildInWaterTech": false,
+        "needBuildInWaterTech": true,
         "waterTypes": [
             1000,
             1007,
@@ -181,7 +181,14 @@
         "ModelID": 71,
         "powerConnectDistance": 70.5,
         "powerCoverRadius": 10.5,
-        "workEnergyPerTick": 160000
+        "workEnergyPerTick": 160000,
+        "allowBuildInWater": true,
+        "needBuildInWaterTech": true,
+        "waterTypes": [
+            1000,
+            1007,
+            6205
+        ]
     },
     {
         "ModelID": 72,

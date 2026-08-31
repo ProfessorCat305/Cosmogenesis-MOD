@@ -28,6 +28,11 @@ namespace ProjectOrbitalRing.Compatibility
             530, 531, 532, 533, 534, 535, 536, 537, 538, 539, 540, 541, 542, 565, 571, 572
         };
 
+        private static FieldInfo HashGenDivisor;
+        private static FieldInfo WarpAccDivisor;
+        private static FieldInfo multifunctionComponentHeat;
+        private static FieldInfo energyPerTickRequiredByLevel;
+
         private static bool _finished;
 
         internal static void Awake()
@@ -57,6 +62,26 @@ namespace ProjectOrbitalRing.Compatibility
                 {
                     after = new[] { LDBToolPlugin.MODGUID, },
                 });
+
+            HarmonyPatch.Patch(AccessTools.Method(assembly.GetType("MoreMegaStructure.StarAssembly"), "Import"), null, null,
+                new HarmonyMethod(typeof(MoreMegaStructure), nameof(Import_Transpiler)));
+
+            HarmonyPatch.Patch(AccessTools.Method(assembly.GetType("MoreMegaStructure.StarAssembly"), "IntoOtherSave"), null, null,
+                new HarmonyMethod(typeof(MoreMegaStructure), nameof(IntoOtherSave_Transpiler)));
+
+            HashGenDivisor = AccessTools.Field(assembly.GetType("MoreMegaStructure.MoreMegaStructure"), "HashGenDivisor");
+            HashGenDivisor.SetValue(null, 200000000L);
+
+            WarpAccDivisor = AccessTools.Field(assembly.GetType("MoreMegaStructure.MoreMegaStructure"), "WarpAccDivisor");
+            WarpAccDivisor.SetValue(null, 50000000L);
+
+            multifunctionComponentHeat = AccessTools.Field(assembly.GetType("MoreMegaStructure.MoreMegaStructure"), "multifunctionComponentHeat");
+            multifunctionComponentHeat.SetValue(null, 22500000000L);
+
+            energyPerTickRequiredByLevel = AccessTools.Field(assembly.GetType("MoreMegaStructure.StarCannon"), "energyPerTickRequiredByLevel");
+            List<long> newEnergyPerTickRequiredByLevel = new List<long> { 0, 500000000, 2500000000, 10000000000, 20000000000, 45000000000, 45000000000 };
+            energyPerTickRequiredByLevel.SetValue(null, newEnergyPerTickRequiredByLevel);
+
             ProjectOrbitalRing.MoreMegaStructureCompatibility = true;
         }
 
@@ -148,16 +173,41 @@ namespace ProjectOrbitalRing.Compatibility
             var matcher = new CodeMatcher(instructions);
 
             matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4, 1126));
-
             matcher.SetOperandAndAdvance(1127);
 
-            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4, 1126));
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4, 6000000));
+            matcher.SetOperandAndAdvance(60000000);
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4, 6000000));
+            matcher.SetOperandAndAdvance(60000000);
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4, 6000000));
+            matcher.SetOperandAndAdvance(60000000);
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4, 12000000));
+            matcher.SetOperandAndAdvance(120000000);
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4, 12000000));
+            matcher.SetOperandAndAdvance(120000000);
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4, 12000000));
+            matcher.SetOperandAndAdvance(120000000);
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4, 5000000));
+            matcher.SetOperandAndAdvance(50000000);
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4, 5000000));
+            matcher.SetOperandAndAdvance(50000000);
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4, 5000000));
+            matcher.SetOperandAndAdvance(50000000);
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4, 5000000));
+            matcher.SetOperandAndAdvance(50000000);
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4, 5000000));
+            matcher.SetOperandAndAdvance(50000000);
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4, 6000000));
+            matcher.SetInstructionAndAdvance(new CodeInstruction(OpCodes.Ldc_I8, 3000000000L));
 
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4, 1126));
             matcher.SetOperandAndAdvance(1127);
 
             matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4, 120000000));
+            matcher.SetInstructionAndAdvance(new CodeInstruction(OpCodes.Ldc_I8, 9000000000L));
 
-            matcher.SetOperandAndAdvance(900000000);
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4, 12000000));
+            matcher.SetInstructionAndAdvance(new CodeInstruction(OpCodes.Ldc_I8, 1000000000L));
 
             return matcher.InstructionEnumeration();
         }
@@ -368,6 +418,32 @@ namespace ProjectOrbitalRing.Compatibility
                 // 如果后续巨构mod改了，任意匹配/偏移异常，原样返回IL，静默失败
                 return instructions;
             }
+        }
+
+        public static IEnumerable<CodeInstruction> Import_Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            var matcher = new CodeMatcher(instructions);
+
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_R8, 20000.0));
+            matcher.SetOperandAndAdvance(100000.0);
+
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4, 100000));
+            matcher.SetOperandAndAdvance(500000);
+
+            return matcher.InstructionEnumeration();
+        }
+
+        public static IEnumerable<CodeInstruction> IntoOtherSave_Transpiler(IEnumerable<CodeInstruction> instructions)
+        {
+            var matcher = new CodeMatcher(instructions);
+
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_R8, 20000.0));
+            matcher.SetOperandAndAdvance(100000.0);
+
+            matcher.MatchForward(false, new CodeMatch(OpCodes.Ldc_I4, 100000));
+            matcher.SetOperandAndAdvance(500000);
+
+            return matcher.InstructionEnumeration();
         }
     }
 }
